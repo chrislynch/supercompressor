@@ -32,8 +32,21 @@ if (file_exists($dir_site . '/actions/' . $action . '.php')){
 /*
  * Render the page
  */
-$return = render_template($dir_template . 'header.html',$data);
-$return = render_template($dir_template . $action . '.html',$data);
+$return = '';
+// $return .= render_template($dir_template . 'html-header.html',$data);
+$return .= render_template($dir_template . 'page-header.html',$data);
+$return .= render_template($dir_template . 'sidebar-1.html',$data);
+$return .= render_template($dir_template . 'sidebar-2.html',$data);
+$return .= render_template($dir_template . 'content-header.html',$data);
+
+// $return = render_template($dir_template . $action . '.html',$data);
+$return .= render_template($dir_template . 'content.html',$data);
+
+$return .= render_template($dir_template . 'content-footer.html',$data);
+$return .= render_template($dir_template . 'sidebar-3.html',$data);
+$return .= render_template($dir_template . 'sidebar-4.html',$data);
+$return .= render_template($dir_template . 'page-footer.html',$data);
+$return .= render_template($dir_template . 'html-footer.html',$data);
 
 print $return;
 print '<hr><pre>' . print_r($data,TRUE) . '</pre>';
@@ -50,12 +63,17 @@ function render_template($template,$data){
     $widget_start = stripos($template, '@@');
     while(!($widget_start === FALSE)){
         $widget_end = stripos($template,'@@',$widget_start + 2);
-        $widget = substr($template,$widget_start+2,$widget_end - ($widget_start + 2));
-        $widget_return = render_widget($widget,$data);
-        $widget = '@@' . $widget . '@@';
-        $template = str_replace($widget, $widget_return, $template);
+        if (!($widget_end === FALSE)){
+            $widget = substr($template,$widget_start+2,$widget_end - ($widget_start + 2));
+            $widget_return = render_widget($widget,$data);
+            $widget = '@@' . $widget . '@@';
+            $template = str_replace($widget, $widget_return, $template);
         
-        $widget_start = stripos($template, '@@');
+            $widget_start = stripos($template, '@@');
+        } else {
+            // We have a mismatched set of @@ characters. Stop processing widgets
+            $widget_start = FALSE;
+        }
     }
     
     return $template;
@@ -87,8 +105,17 @@ function render_widget($widget,$data){
     }
     
     switch ($widget_type){
+        case 'content':
         case 'data':
             $return = array_drill_get($widget_field,$data);
+            break;
+        case 'loop':
+            global $dir_template;
+            $loopcontent = array_drill_get($widget_field,$data);
+            $return = '';
+            foreach($loopcontent as $loopcontentID => $loopcontentitem){
+                $return .= render_template($dir_template . $widget_params['template'], $loopcontentitem);
+            }
             break;
         default:
             $return = '';
@@ -116,7 +143,7 @@ function render_widget($widget,$data){
 function array_drill_get($array_path,$data){
     /*
      * Drill down through our array until we find the item we want or run out of array
-     */    
+     */
     if (strstr($array_path,'.')){
         // Drilling down at least one more level
         $array_path = explode('.',$array_path);
@@ -136,18 +163,22 @@ function array_drill_set($array_path,$value,&$data){
     /*
      * Set an item as deep down in our array as we want.
      */
-    $array_path = explode('.',$array_path);
-    $data_target =& $data[$array_path[0]];
-    
-    while(sizeof($array_path) > 1){
-        $array_path_item = array_shift($array_path);
-        if (!isset($data[$array_path_item])){
-            $data[$array_path_item] = array();
+    if (strstr($array_path,'.')){
+        $array_path = explode('.',$array_path);
+        $data_target =& $data[$array_path[0]];
+
+        while(sizeof($array_path) > 1){
+            $array_path_item = array_shift($array_path);
+            if (!isset($data[$array_path_item])){
+                $data[$array_path_item] = array();
+            }
+            $data_target =& $data[$array_path_item];
         }
-        $data_target =& $data[$array_path_item];
+
+        $data_target[$array_path[0]] = $value;
+    } else {
+        $data[$array_path] = $value;
     }
-    
-    $data_target[$array_path[0]] = $value;
 }
 
 function data_load($ID){
