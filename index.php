@@ -155,7 +155,11 @@ function array_drill_get($array_path,$data){
             return '';
         }
     } else {
-        return $data[$array_path];
+        if (isset($data[$array_path])){
+            return $data[$array_path];
+        } else {
+            return '';
+        }
     }
 }
 
