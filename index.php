@@ -6,23 +6,37 @@
 
 $data = array();
 
-$dir_template   = 'templates/shop/';
-$dir_site       = 'site/localhost/';
+$dir_template   = 'templates/localhost/';
+$dir_site       = 'sites/localhost/';
 
 /*
- * Build the data array
+ * Bootstrap the data array
  */
-$data['h1'] = 'Main page title';
-$data['seo'] = array();
-$data['seo']['title'] = 'SEO Title';
-array_drill_set('footer.copyright','Chris Lynch',$data);
+include $dir_site . 'bootstrap.php';
+
+/*
+ * Decide what action we are doing and then do it
+ */
+if (isset($_REQUEST['action'])){
+    $action = $_REQUEST['action'];
+} else {
+    $action = 'home';
+}
+
+if (file_exists($dir_site . '/actions/' . $action . '.php')){
+    include $dir_site . '/actions/' . $action . '.php';
+} else {
+    include 'actions/' . $action . '.php';
+}
 
 /*
  * Render the page
  */
 $return = render_template($dir_template . 'header.html',$data);
+$return = render_template($dir_template . $action . '.html',$data);
 
 print $return;
+print '<hr><pre>' . print_r($data,TRUE) . '</pre>';
 
 /*
  * END OF SUPERCOMPRESSOR
@@ -53,18 +67,28 @@ function render_widget($widget,$data){
      */
     $widget = explode('?',$widget);
     $widget_type = $widget[0];
-    $widget_param_string = $widget[1];
+    if (isset($widget[1])){
+        $widget_param_string = $widget[1];
+    } else {
+        $widget_param_string = '';
+    }
     
+    $widget_type_array = explode('.',$widget_type);
+    $widget_type = array_shift($widget_type_array);
+    $widget_field = implode('.',$widget_type_array);
+                
     $widget_param_string = explode('&',$widget_param_string);
     $widget_params = array();
     foreach($widget_param_string as $widget_param_string_item){
-        $widget_param_string_item = explode('=',$widget_param_string_item);
-        $widget_params[$widget_param_string_item[0]] = $widget_param_string_item[1];
+        if (strstr($widget_param_string_item,'=')){
+            $widget_param_string_item = explode('=',$widget_param_string_item);
+            $widget_params[$widget_param_string_item[0]] = $widget_param_string_item[1];
+        }
     }
     
     switch ($widget_type){
         case 'data':
-            $return = array_drill_get($widget_params['field'],$data);
+            $return = array_drill_get($widget_field,$data);
             break;
         default:
             $return = '';
@@ -92,7 +116,7 @@ function render_widget($widget,$data){
 function array_drill_get($array_path,$data){
     /*
      * Drill down through our array until we find the item we want or run out of array
-     */
+     */    
     if (strstr($array_path,'.')){
         // Drilling down at least one more level
         $array_path = explode('.',$array_path);
@@ -113,16 +137,34 @@ function array_drill_set($array_path,$value,&$data){
      * Set an item as deep down in our array as we want.
      */
     $array_path = explode('.',$array_path);
+    $data_target =& $data[$array_path[0]];
     
     while(sizeof($array_path) > 1){
         $array_path_item = array_shift($array_path);
         if (!isset($data[$array_path_item])){
             $data[$array_path_item] = array();
-            $data_target =& $data[$array_path_item];
         }
+        $data_target =& $data[$array_path_item];
     }
     
     $data_target[$array_path[0]] = $value;
+}
+
+function data_load($ID){
+    /*
+     * Load an item of data from the database
+     */
+    global $db;
+    global $data;
+    
+    $data['content'][$ID] = array();
+    $datarecord =& $data['content'][$ID];
+    
+    $records = mysql_query('SELECT * FROM sc_data WHERE ID = ' . $ID . ' ');
+    while ($record = mysql_fetch_assoc($records)){
+        array_drill_set($record['Field'], $record['Value'], $datarecord);
+    }
+    
 }
 
 ?>
