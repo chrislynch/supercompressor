@@ -38,7 +38,7 @@ mysql_close($db);
  * Render the page
  */
 $return = '';
-// $return .= render_template($dir_template . 'html-header.html',$data);
+$return .= render_template($dir_template . 'html-header.html',$data);
 $return .= render_template($dir_template . 'page-header.html',$data);
 $return .= render_template($dir_template . 'sidebar-1.html',$data);
 $return .= render_template($dir_template . 'sidebar-2.html',$data);
