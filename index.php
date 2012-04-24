@@ -30,6 +30,11 @@ if (file_exists($dir_site . '/actions/' . $action . '.php')){
 }
 
 /*
+ * All of our transacting is now done. Close the link to the database.
+ */
+mysql_close($db);
+
+/*
  * Render the page
  */
 $return = '';
@@ -195,11 +200,70 @@ function data_load($ID){
     $data['content'][$ID] = array();
     $datarecord =& $data['content'][$ID];
     
+    $records = mysql_query('SELECT * FROM sc_index WHERE ID = ' . $ID . ' ');
+    while ($record = mysql_fetch_assoc($records)){
+        foreach($record as $field=>$value){
+            array_drill_set($field, $value, $datarecord);
+        }
+    }
+    
     $records = mysql_query('SELECT * FROM sc_data WHERE ID = ' . $ID . ' ');
     while ($record = mysql_fetch_assoc($records)){
         array_drill_set($record['Field'], $record['Value'], $datarecord);
     }
     
+}
+
+function data_save($dataitem){
+    /*
+     * Save this data item to the database
+     */
+    global $db;
+    
+    // Place the item's core into the index.    
+    $SQL = 'INSERT INTO sc_index 
+                    SET ID = ' . $dataitem['ID'] . ',
+                        Type = "' . $dataitem['Type'] . '",
+                        URL = "' . $dataitem['URL'] . '",
+                        Status = ' . $dataitem['Status'] . '
+                 ON DUPLICATE KEY UPDATE
+                        ID = ' . $dataitem['ID'] . ',
+                        Type = "' . $dataitem['Type'] . '",
+                        URL = "' . $dataitem['URL'] . '",
+                        Status = ' . $dataitem['Status'];
+    
+    mysql_query($SQL,$db);
+    
+    // Now delete all items from the sc_data table
+    mysql_query('DELETE FROM sc_data WHERE ID = ' . $dataitem['ID']);
+    
+    // Then insert each individual piece of data, traversing our way down the array
+    foreach($dataitem as $datakey => $datavalue){
+        data_save_item($dataitem['ID'],$datakey,$datavalue);
+    }   
+}
+
+function data_save_item($ID,$datakey,$datavalue){
+    global $db;
+    $sc_index_array = array('ID','Type','URL','Status');
+    
+    if (in_array($datakey, $sc_index_array)){
+        // This item is part of the sc_index core, and so we can ignore it
+    } else {
+        // If this item is in array, we need to work our way down inside it. 
+        // If not, then we have found something to save
+        if (is_array($datavalue)){
+            // $datakey .= '.' . $datakey;
+            foreach($datavalue as $datavaluekey => $datavaluevalue){
+                data_save_item($ID,$datakey . '.' . $datavaluekey,$datavaluevalue);
+            }
+        } else {
+            mysql_query('INSERT INTO sc_data
+                            SET ID = ' . $ID . ',
+                                Field = "' . $datakey . '",
+                                Value = "' . $datavalue . '"',$db);  
+        }
+    }
 }
 
 ?>
