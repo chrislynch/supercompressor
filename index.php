@@ -12,21 +12,32 @@ $dir_site       = 'sites/localhost/';
 /*
  * Bootstrap the data array
  */
-include $dir_site . 'bootstrap.php';
+include 'bootstrap.php';
+if (file_exists($dir_site . 'config.php')){include $dir_site . 'config.php';}
+
+$db = mysql_connect($data['db']['server'], $data['db']['username'], $data['db']['password']);
+mysql_select_db($data['db']['schema'],$db);
 
 /*
  * Decide what action we are doing and then do it
  */
 if (isset($_REQUEST['action'])){
-    $action = $_REQUEST['action'];
+    $data['actions'][0] = $_REQUEST['action'];
 } else {
-    $action = 'home';
+    $data['actions'][0] = 'home';
 }
 
-if (file_exists($dir_site . '/actions/' . $action . '.php')){
-    include $dir_site . '/actions/' . $action . '.php';
-} else {
-    include 'actions/' . $action . '.php';
+ksort($data['actions']);
+
+foreach($data['actions'] as $action){
+    if (file_exists($dir_site . '/actions/' . $action . '.php')){
+        include $dir_site . '/actions/' . $action . '.php';
+    } else {
+        include 'actions/' . $action . '.php';
+    }
+    
+    $parameters = array( &$data );
+    call_user_func_array('action_' . $action . '_go',$parameters);
 }
 
 /*
@@ -84,7 +95,7 @@ function render_template($template,$data){
     return $template;
 }
 
-function render_widget($widget,$data){
+function render_widget($widget,$data, $recursion_depth = 0){
     /*
      * Render a given widget against the given data array
      */
@@ -122,6 +133,8 @@ function render_widget($widget,$data){
                 $return .= render_template($dir_template . $widget_params['template'], $loopcontentitem);
             }
             break;
+        case 'list':
+            // TODO: Output a list. Recurse to this very function to create sub lists.
         default:
             $return = '';
     }
