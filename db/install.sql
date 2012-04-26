@@ -13,3 +13,10 @@ CREATE TABLE `sc_data` (
   `Value` text,
   PRIMARY KEY (`ID`,`Field`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `sc_search` (
+  `ID` int(11) NOT NULL,
+  `SearchText` text NOT NULL,
+  PRIMARY KEY (`ID`),
+  FULLTEXT KEY `sc_search_fulltext` (`SearchText`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

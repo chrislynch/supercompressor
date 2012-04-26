@@ -15,7 +15,7 @@ array_drill_set('seo.copyright','SEO Copyright',$data);
 array_drill_set('seo.google.analytics.account','',$data);
 
 /* Cart */
-array_drill_set('cart.items','0 items',$data);
-array_drill_set('cart.value','&pound;0.00',$data);
+array_drill_set('Cart.Items','0 items',$data);
+array_drill_set('Cart.Value','&pound;0.00',$data);
 
 ?>

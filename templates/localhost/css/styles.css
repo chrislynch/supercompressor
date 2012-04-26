@@ -1,0 +1,46 @@
+/* 
+    Document   : styles
+    Created on : 25-Apr-2012, 13:14:46
+    Author     : chris
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body { 
+    display: block;
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+
+.search-result{
+    margin-bottom: 5px;
+    
+    border-style: solid;
+    border-width: 2px;
+    border-color: gainsboro;
+    
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    
+}
+
+.search-result .title h2{
+    font-size: 14pt;
+}
+
+.search-result .teaser {
+    font-size: 8pt;
+}
+
+.price-list{
+    text-decoration: line-through;
+}
+
+.price-sell {
+    font-size: 12pt;
+}
+
+.price-saving {
+    color: red;
+}

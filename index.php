@@ -12,7 +12,7 @@ $dir_site       = 'sites/localhost/';
 /*
  * Bootstrap the data array
  */
-include $dir_site . 'bootstrap.php';
+include 'bootstrap.php';
 
 /*
  * Decide what action we are doing and then do it
@@ -54,7 +54,11 @@ $return .= render_template($dir_template . 'page-footer.html',$data);
 $return .= render_template($dir_template . 'html-footer.html',$data);
 
 print $return;
-print '<hr><pre>' . print_r($data,TRUE) . '</pre>';
+
+if (isset($_GET['debug'])){
+    print '<hr><pre>' . print_r($data,TRUE) . '</pre>';
+}
+
 
 /*
  * END OF SUPERCOMPRESSOR
@@ -264,6 +268,15 @@ function data_save_item($ID,$datakey,$datavalue){
                                 Value = "' . $datavalue . '"',$db);  
         }
     }
+}
+
+function data_index($ID = 0){
+    /*
+     * Index some, or all, of our data.
+     */
+    
+    // Clear any existing index data.
+    
 }
 
 ?>
