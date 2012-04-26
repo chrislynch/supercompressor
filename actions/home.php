@@ -6,7 +6,7 @@ function action_home_go(&$data){
     * Load up all the content for the homepage
     */
 
-    $records = mysql_query('SELECT ID FROM sc_index');
+    $records = mysql_query('SELECT ID FROM sc_index LIMIT 10');
     while($record = mysql_fetch_assoc($records)){
         data_load($record['ID']);
     }

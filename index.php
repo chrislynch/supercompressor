@@ -48,7 +48,7 @@ foreach($data['actions'] as $action){
     }
     
     $parameters = array( &$data );
-    call_user_func_array('action_' . $action . '_go',$parameters);
+    call_user_func_array('action_' . str_ireplace('/', '_', $action)  . '_go',$parameters);
 }
 
 /*
