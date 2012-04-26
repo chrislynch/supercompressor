@@ -62,16 +62,16 @@ mysql_close($db);
 $return = '';
 $return .= render_template($dir_template . 'html-header.html',$data);
 $return .= render_template($dir_template . 'page-header.html',$data);
-$return .= render_template($dir_template . 'sidebar-1.html',$data);
-$return .= render_template($dir_template . 'sidebar-2.html',$data);
+$return .= render_template($dir_template . 'sidebar-left-1.html',$data);
+$return .= render_template($dir_template . 'sidebar-left-2.html',$data);
 $return .= render_template($dir_template . 'content-header.html',$data);
 
 // $return = render_template($dir_template . $action . '.html',$data);
 $return .= render_template($dir_template . 'content.html',$data);
 
 $return .= render_template($dir_template . 'content-footer.html',$data);
-$return .= render_template($dir_template . 'sidebar-3.html',$data);
-$return .= render_template($dir_template . 'sidebar-4.html',$data);
+$return .= render_template($dir_template . 'sidebar-right-1.html',$data);
+$return .= render_template($dir_template . 'sidebar-right-2.html',$data);
 $return .= render_template($dir_template . 'page-footer.html',$data);
 $return .= render_template($dir_template . 'html-footer.html',$data);
 

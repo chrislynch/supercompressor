@@ -1,15 +1,70 @@
-/* 
-    Document   : styles
-    Created on : 25-Apr-2012, 13:14:46
-    Author     : chris
-    Description:
-        Purpose of the stylesheet follows.
-*/
+@import url("http://fonts.googleapis.com/css?family=Belleza");
 
 body { 
     display: block;
     font-family: sans-serif;
     font-size: 10pt;
+    background-image: url("images/background.jpg");
+}
+
+.container-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-top: 10px;
+    
+    width: 980px;
+    
+    background: white;
+    
+    box-shadow:         0px 0px 20px 3px #ccc;
+    -moz-box-shadow:    0px 0px 20px 3px #ccc;
+    -webkit-box-shadow: 0px 0px 20px 3px #ccc;
+}
+
+#logo {
+    font-family: 'Belleza', sans-serif;
+    font-size: 28pt;
+    font-weight: bold;
+    color: navy;
+}
+
+#logo .megastore {
+    color: gray;
+}
+
+#slogan {
+    font-size: 10pt;
+    color: gray;
+}
+
+#primary-menu {
+    padding-top : 5px;
+    padding-bottom: 5px;
+}
+
+#primary-menu .menu-item {
+    border-radius: 10px 10px 0px 0px; 
+    -moz-border-radius: 10px 10px 0px 0px; 
+    -webkit-border-radius: 10px 10px 0px 0px; 
+    border: 1px solid gray;
+    
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    height: 30px;
+    
+    background: gainsboro;
+}
+
+#cart {
+    text-align: right;
+}
+
+#sidebar-left-1 {
+    border-right-style: solid;
+    border-right-color: gainsboro;
+    border-right-width: 1px;
 }
 
 .search-result{
