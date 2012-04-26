@@ -135,6 +135,8 @@ function render_widget($widget,$data, $recursion_depth = 0){
         }
     }
     
+    $return = '';
+    
     switch ($widget_type){
         case 'content':
         case 'data':
@@ -143,13 +145,16 @@ function render_widget($widget,$data, $recursion_depth = 0){
         case 'loop':
             global $dir_template;
             $loopcontent = array_drill_get($widget_field,$data);
-            $return = '';
             foreach($loopcontent as $loopcontentID => $loopcontentitem){
                 $return .= render_template($dir_template . $widget_params['template'], $loopcontentitem);
             }
             break;
         case 'list':
-            // TODO: Output a list. Recurse to this very function to create sub lists.
+            $listcontent = array_drill_get($widget_field,$data);
+            foreach($listcontent as $listcontentID => $listcontentitem){
+                $return .= '<li class="' . @$widget_params['li-class'] . '"><a href="' . $listcontentitem['link'] . '">' . $listcontentitem['text'] . '</a></li>';
+            }
+            break;
         default:
             $return = '';
     }
