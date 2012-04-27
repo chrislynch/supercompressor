@@ -18,21 +18,26 @@
     </div>
     
     <div id="primary-menu" class="span-24 last">
-        <div id="search" class="menu-item span-7 ">
+        <div id="search" class="span-7 menu-item">
             <form action="?action=search" method="POST">
                 Search:
                 <input type="text" name="search" size="15">
                 <input type="submit" value="search">
             </form>
         </div>
-        <ul>
-            @@list.menu.Products?li-class=menu-item@@
-        </ul>
-        <div class="menu-item span-3 last">Ladders</div>
-        <div class="menu-item span-3 last">DIY</div>
-        <div class="menu-item span-3 last">DIY</div>
-        <div class="menu-item span-3 last">DIY</div>
-        <div class="menu-item span-3 ">DIY</div>
-        <div class="menu-item sale span-2 last">SALE!</div>
+        <div class="span-16 last">
+            <ul>
+                @@list.menu.Sections?li-class=menu-item&ul-length=5@@
+            </ul>
+        </div>
+        
+        <!--
+            <div class="menu-item span-3 last">Ladders</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 ">DIY</div>
+            <div class="menu-item sale span-2 last">SALE!</div>
+        -->
     </div>
 </div>

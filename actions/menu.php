@@ -24,7 +24,7 @@ function action_menu_go(&$data){
         $menusData = mysql_query($menusSQL,$db);
         
         while($menuItem = mysql_fetch_assoc($menusData)){
-            $data['menu'][$menuKey][] = array('link'=>'?action=search&search.Category.Product=' . $menuItem['category'],
+            $data['menu'][$menuKey][] = array('link'=>'?action=search&search.' . $menuField . '=' . $menuItem['category'],
                                                 'text'=> $menuItem['category'] . ' (' . $menuItem['members'] . ')');
         }
     }

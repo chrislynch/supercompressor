@@ -46,20 +46,38 @@ body {
 #primary-menu {
     padding-top : 5px;
     padding-bottom: 5px;
+    overflow: hidden;
+    height: 40px;
 }
 
-#primary-menu .menu-item {
+#primary-menu #search {
+    padding-left: 5px;
+}
+
+#primary-menu ul {
+    list-style: none;
+    margin-left: 0px;
+    margin-top: 11px;
+    padding-left: 0px;
+    height: 40px;
+}
+
+#primary-menu .menu-item{
     border-radius: 10px 10px 0px 0px; 
     -moz-border-radius: 10px 10px 0px 0px; 
     -webkit-border-radius: 10px 10px 0px 0px; 
     border: 1px solid gray;
-    
+    background: gainsboro;
+    display: inline;
+    padding-top: 10px;
+}
+
+#primary-menu li {
     text-align: center;
     font-weight: bold;
-    padding-top: 10px;
-    height: 30px;
-    
-    background: gainsboro;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px
 }
 
 #primary-menu .sale {

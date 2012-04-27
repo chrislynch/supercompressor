@@ -68,8 +68,11 @@ function render_widget($widget,$data, $recursion_depth = 0){
             break;
         case 'list':
             $listcontent = array_drill_get($widget_field,$data);
+            if (isset($widget_params['ul-length'])) { $listlength = $widget_params['ul-length']; } else {$listlength = -1;}
             foreach($listcontent as $listcontentID => $listcontentitem){
                 $return .= '<li class="' . @$widget_params['li-class'] . '"><a href="' . $listcontentitem['link'] . '">' . $listcontentitem['text'] . '</a></li>';
+                $listlength --;
+                if ($listlength == 0){ break;}
             }
             break;
         default:
