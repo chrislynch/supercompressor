@@ -52,6 +52,8 @@ body {
 
 #primary-menu #search {
     padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 4px;
 }
 
 #primary-menu ul {
@@ -140,6 +142,10 @@ body {
 
 .search-result .teaser {
     font-size: 8pt;
+}
+
+.product-image {
+    overflow: hidden;
 }
 
 .price-list{

@@ -10,8 +10,13 @@ include 'bootstrap.php';
  * Decide what action we are doing and then do it
  */
 if (isset($_REQUEST['action'])){
+    // We have requested a specific action
     $data['actions'][0] = $_REQUEST['action'];
+} elseif (isset($_REQUEST['x'])){
+    // We are looking for a specific action based on URL.
+    $data['actions'][0] = url_action($_REQUEST['x'], $data);
 } else {
+    // No URL defined, so we are on the home page
     $data['actions'][0] = 'home';
 }
 
@@ -43,8 +48,15 @@ $return .= render_template($dir_template . 'sidebar-left-1.html',$data);
 $return .= render_template($dir_template . 'sidebar-left-2.html',$data);
 $return .= render_template($dir_template . 'content-header.html',$data);
 
-// $return = render_template($dir_template . $action . '.html',$data);
-$return .= render_template($dir_template . 'content.html',$data);
+if (isset($data['templates']) && sizeof($data['templates']) > 0){
+    foreach($data['templates'] as $template){
+        $return .= render_template($dir_template . $template . '.html',$data);
+    }
+} else {
+    $return .= render_template($dir_template . 'actions/' . $data['actions'][0] . '.html',$data);
+}
+
+// $return .= render_template($dir_template . 'content.html',$data);
 
 $return .= render_template($dir_template . 'content-footer.html',$data);
 $return .= render_template($dir_template . 'sidebar-right-1.html',$data);
