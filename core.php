@@ -54,6 +54,15 @@ function render_widget($widget,$data, $recursion_depth = 0){
     
     switch ($widget_type){
         case 'content':
+            if (isset($data['_content'])){
+                // Assume that have not drilled down, yet, and the item we need is the first item in the content array
+                foreach($data['_content'] as $contentItem){
+                    $return = array_drill_get($widget_field,$contentItem);
+                    break;
+                }
+                break;
+            }
+            // Drop through to 'data' if did not find content
         case 'data':
             $return = array_drill_get($widget_field,$data);
             break;
@@ -150,8 +159,8 @@ function data_load($ID){
     global $db;
     global $data;
     
-    $data['content'][$ID] = array();
-    $datarecord =& $data['content'][$ID];
+    $data['_content'][$ID] = array();
+    $datarecord =& $data['_content'][$ID];
     
     $records = mysql_query('SELECT * FROM sc_index WHERE ID = ' . $ID . ' ');
     while ($record = mysql_fetch_assoc($records)){

@@ -146,16 +146,31 @@ body {
 
 .product-image {
     overflow: hidden;
+    width: 95%
 }
 
-.price-list{
+.search-result .price-list{
     text-decoration: line-through;
 }
 
-.price-sell {
+.search-result .price-sell {
     font-size: 12pt;
 }
 
-.price-saving {
+.search-result .price-saving {
+    color: red;
+}
+
+.product .price-list{
+    font-size: 12pt;
+    text-decoration: line-through;
+}
+
+.product .price-sell {
+    font-size: 16pt;
+}
+
+.product .price-saving {
+    font-size: 14pt;
     color: red;
 }

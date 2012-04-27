@@ -7,7 +7,7 @@ $data['db']['server']    = 'localhost';
 $data['db']['username']  = 'root'; 
 $data['db']['password']  = '';
 $data['db']['schema']    = 'sc';
-$data['page']['content'] = array();
+$data['page']['_content'] = array();
 
 $data['actions'] = array();
 $data['actions'][-2] = 'menu';

@@ -10,7 +10,7 @@ function action_item_go(&$data){
      * and then to set up the template that we will be using
      */
     $data['templates'] = array();
-    foreach($data['content'] as $key=>$item){
+    foreach($data['_content'] as $key=>$item){
         $data['templates'][] = 'items/' . strtolower($item['Type']);
     }
 }
