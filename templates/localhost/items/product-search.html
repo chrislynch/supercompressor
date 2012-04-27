@@ -11,6 +11,9 @@
             <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
         </div>
         <div class="span-4 last">
+            <form action="?action=cart" method="POST">
+                <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
+            </form>
             <input type="submit" value="Add to Cart">
         </div>
         

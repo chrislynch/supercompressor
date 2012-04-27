@@ -146,6 +146,7 @@ body {
 
 .product-image {
     overflow: hidden;
+    padding: 2px;
     width: 95%
 }
 

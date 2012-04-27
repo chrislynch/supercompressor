@@ -1,15 +1,33 @@
 <div class="product span-14 last">       
-    <div class="span-7">
+    <div class="span-6">
         <img src="@@content.Image@@" class="product-image">
     </div>
-    <div class="span-7 last">     
+    <div class="span-8 last">     
         <h1>@@content.Title@@</h1>
-        <div class="price-list">@@content.Product.ListPrice?prefix=Was: £@@</div>
-        <div class="price-sell">@@content.Product.SellPrice?prefix=Now: £@@</div>
-        <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+        <div class="span-4">
+            <div class="price-list">@@content.Product.ListPrice?prefix=Was: £@@</div>
+            <div class="price-sell">@@content.Product.SellPrice?prefix=Now: £@@</div>
+            <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+        </div>
+        <div class="span-4 last">
+            <input type="submit" value="Add to Cart">
+        </div>
+        <hr>
+        <div class="span-8 last">
+            Product Code: @@content.Product.SKU@@<br>
+            Stock: @@content.Stock.Message@@<br>
+        </div>
         
-        <input type="submit" value="Add to Cart">
-        
+        <hr>
+        <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style ">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+            <!--<a class="addthis_counter addthis_pill_style"></a> -->
+            </div>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f9ac62e76cb9e71"></script>
+        <!-- AddThis Button END -->
     </div>
     <div class="span-14 last">        
         <h2>Product Description</h2>
