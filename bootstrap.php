@@ -1,13 +1,15 @@
 <?php
 
-include 'core.php';
+include 'core/core.php';
+include 'core/widgets.php';
 
 $data = array();
 $data['db']['server']    = 'localhost'; 
 $data['db']['username']  = 'root'; 
 $data['db']['password']  = '';
 $data['db']['schema']    = 'sc';
-$data['page']['_content'] = array();
+
+$data['_content'] = array();
 
 $data['actions'] = array();
 $data['actions'][-2] = 'menu';
