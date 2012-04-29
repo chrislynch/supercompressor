@@ -63,13 +63,19 @@ function render_widget($widget,$data, $recursion_depth = 0){
     }
     
     if(is_array($return)){
-        $tempreturn = '';
+        $tempreturn = '<table>';
         foreach($return as $returnKey=>$returnValue){
             if (strlen($returnValue) > 0){
-                $tempreturn .= '<label>' . ucwords(str_ireplace('_', ' ', $returnKey)) . '</label>:&nbsp;' . $returnValue . '<br>';
+                $tempreturn .= '<tr><td>' . ucwords(str_ireplace('_', ' ', $returnKey)) . ':&nbsp;</td><td>' . $returnValue . '</td></tr>';
             }
         }
+        $tempreturn .= '</table>';
         $return = $tempreturn;
+    }
+    if(is_numeric($return)){
+        if ($return == 0.00){
+            $return = '';
+        }
     }
     
     if(isset($widget_params['default'])){
