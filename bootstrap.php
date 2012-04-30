@@ -5,6 +5,8 @@ include 'core/widgets.php';
 
 $data = array();
 
+$data['_configuration'] = array();
+
 $data['db']['server']    = 'localhost'; 
 $data['db']['username']  = 'root'; 
 $data['db']['password']  = '';
@@ -15,7 +17,8 @@ $data['actions'][-2] = 'menu';
 $data['actions'][-1] = 'cart';
 $data['actions'][1]  = 'seo';
 
-$data['_configuration'] = array();
+array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
+array_drill_set('pager.maxpages', 10, $data['_configuration']);
 
 $data['_content'] = array();
 

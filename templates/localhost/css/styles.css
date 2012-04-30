@@ -97,6 +97,23 @@ body {
     color: white;
 }
 
+.pager {
+    text-align: right;
+}
+
+.pager ul{
+    float: right;
+    list-style: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.pager ul li{
+    display: inline;
+    padding-left: 5px;
+}
+
 #sidebar-left-1 h3 {
     color: navy;
     margin-top: 2px;

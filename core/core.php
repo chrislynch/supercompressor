@@ -175,4 +175,29 @@ function url_action($url,&$data){
     }
 }
 
+function url_build($params,$url = '', $keepparameters = TRUE){
+    // Build a URL with a query string, keeping current parameters or throwing them away
+    $return = $url . '?';
+    $urlparams = '';
+    $suppliedparams = '';
+	
+    if ($keepparameters){
+        foreach($_GET as $key=>$value){
+            if (!(key_exists($key, $params)) && $key !== 'q'){
+                $urlparams .= '&' . $key . '=' . urlencode($value); 
+            }
+        }	
+    }
+	
+    foreach($params as $key=>$value){
+        if(strlen($value) > 0){
+            $suppliedparams .= '&' . $key . '=' . $value;	
+        }
+    }
+	
+    $return .= $suppliedparams . $urlparams;
+	
+    return $return;
+}
+
 ?>

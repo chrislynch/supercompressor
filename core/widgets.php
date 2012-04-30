@@ -59,7 +59,14 @@ function render_widget($widget,$data, $recursion_depth = 0){
             }
             break;
         default:
-            $return = '';
+            if (file_exists('core/widgets/' . $widget_type . '.php')){
+                include_once('core/widgets/' . $widget_type . '.php');
+                $parameters = array( $widget_field,$widget_params,&$data );
+                $return = call_user_func_array('widget_' . $widget_type  . '_go',$parameters);
+            } else {
+                $return = '';
+            }
+            
     }
     
     if(is_array($return)){

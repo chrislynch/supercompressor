@@ -26,7 +26,7 @@ foreach($data['actions'] as $action){
     if (file_exists($dir_site . '/actions/' . $action . '.php')){
         include_once $dir_site . '/actions/' . $action . '.php';
     } else {
-        include_once 'actions/' . $action . '.php';
+        include_once 'core/actions/' . $action . '.php';
     }
     
     $parameters = array( &$data );
