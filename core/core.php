@@ -92,6 +92,13 @@ function data_load($ID){
         array_drill_set($record['Field'], $record['Value'], $datarecord);
     }
     
+    $datatypeInclude = 'core/datatypes/' . strtolower($datarecord['Type']) . '.php';
+    if (file_exists($datatypeInclude)){
+        include_once($datatypeInclude);
+        $parameters = array( &$datarecord );
+        call_user_func_array('datatype_' . str_ireplace('/', '_', $datarecord['Type'])  . '_load',$parameters);
+    }
+    
 }
 
 function data_save($dataitem){
