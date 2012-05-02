@@ -5,18 +5,20 @@
         </a>
     </div>
     <div class="span-10 last">
-        <div class="title span-10 last"><h2><a href="@@content.URL@@">@@content.Title@@</a></h2></div>
+        <div class="title span-10 last"><h2 class="product-title"><a href="@@content.URL@@">@@content.Title@@</a></h2></div>
         
         <div class="span-6">
             <div class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</div>
-            <div class="price-sell">@@content.Product.SellPrice?prefix=Now: £@@</div>
+            <div class="price-sell product-price">@@content.Product.SellPrice?prefix=Now: £@@</div>
             <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
         </div>
         <div class="span-4 last">
+            <!--
             <form action="?action=cart" method="POST">
                 <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
+                <input type="submit" value="Add to Cart">
             </form>
-            <input type="submit" value="Add to Cart">
+            -->
         </div>
         
         <div class="teaser span-8 append-2 last">

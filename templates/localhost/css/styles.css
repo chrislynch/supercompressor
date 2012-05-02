@@ -150,6 +150,10 @@ body {
     border-right-width: 1px;
 }
 
+#twitter {
+    padding-left: 10px;
+}
+
 /* INDIVIDUAL SEARCH RESULT */
 
 .search-result{
