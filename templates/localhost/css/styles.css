@@ -217,7 +217,8 @@ body {
 }
 
 .product h1 {
-    margin-top: 0px;
+    color: navy;
+    margin-top: 10px;
 }
 
 .product h2 {
@@ -230,7 +231,7 @@ body {
 }
 
 .product .price-sell {
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: bold;
 }
 

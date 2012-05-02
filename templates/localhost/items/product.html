@@ -3,14 +3,18 @@
         <img src="@@content.Image@@" class="product-image">
     </div>
     <div class="span-8 last">     
-        <h1>@@content.Title@@</h1>
+        <h1 class="product-title">@@content.Title@@</h1>
         <div class="span-5">
             <div class="price-sell">@@content.Product.SellPrice?prefix=Now: £@@</div>
-            <div class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</div>
+            <div class="price-list product-price">@@content.Product.WasPrice?prefix=Was: £@@</div>
             <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
         </div>
         <div class="span-3 last">
-            <input type="submit" value="Add to Cart">
+            <div role="button" alt="Add to cart" tabindex="0" class="googlecart-add-button"></div>
+            <!-- <input type="submit" value="Add to Cart"> -->
+        </div>
+        <div class="span-8 last">
+            @@content.Teaser@@&nbsp;(<a href="#productdescription">Read More</a>)
         </div>
         <hr>
         <div class="span-8 last">
@@ -30,7 +34,7 @@
         <!-- AddThis Button END -->
     </div>
     <div class="span-14 last">        
-        <h2>Product Description</h2>
+        <a name="productdescription"><h2>Product Description</h2></a>
         @@content.Body@@
         <h2>Product Specification</h2>
         @@content.Specification@@

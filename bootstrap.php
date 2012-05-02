@@ -17,8 +17,16 @@ $data['actions'][-2] = 'menu';
 $data['actions'][-1] = 'cart';
 $data['actions'][1]  = 'seo';
 
+// Pager configuration
 array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
 array_drill_set('pager.maxpages', 10, $data['_configuration']);
+
+// Category configuration
+$data['_configuration']['categories'] = array();
+array_drill_set('products.heading','Browse by Product',$data['_configuration']['categories']);
+array_drill_set('products.menu','Products',$data['_configuration']['categories']);
+array_drill_set('brand.heading','Browse by Brand',$data['_configuration']['categories']);
+array_drill_set('brand.menu','Brands',$data['_configuration']['categories']);
 
 $data['_content'] = array();
 
