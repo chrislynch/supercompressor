@@ -43,8 +43,13 @@ function render_widget($widget,$data, $recursion_depth = 0){
         case 'loop':
             global $dir_template;
             $loopcontent = array_drill_get($widget_field,$data);
+	    $loopcount = 0;
             if (is_array($loopcontent)){
                 foreach($loopcontent as $loopcontentID => $loopcontentitem){
+                    $loopcount += 1;
+		    if (isset($widget_params['grid'])){
+		        if($loopcount % $widget_params['grid'] == 0) { $loopcontentitem['_islast']; print 'Last';}
+		    }
                     $return .= render_template($dir_template . $widget_params['template'], $loopcontentitem);
                 }
             }

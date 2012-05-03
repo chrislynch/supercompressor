@@ -159,6 +159,10 @@ body {
     padding-left: 5px;
 }
 
+#facebook {
+    padding-left: 5px;
+}
+
 /* INDIVIDUAL SEARCH RESULT */
 
 .search-result{
@@ -194,6 +198,7 @@ body {
 
 .search-result .price-sell {
     font-size: 12pt;
+    font-weight: bold;
 }
 
 .search-result .price-saving {
