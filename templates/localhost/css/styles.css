@@ -150,23 +150,28 @@ body {
     border-right-width: 1px;
 }
 
+#sidebar-right {
+    /* Need to make this slighly smaller than a span-5 to take into account borders in other places */
+   width: 189px;
+}
+
 #twitter {
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 /* INDIVIDUAL SEARCH RESULT */
 
 .search-result{
     margin-bottom: 5px;
-    
+
     border-style: solid;
     border-width: 2px;
     border-color: gainsboro;
-    
+
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    
+
 }
 
 .search-result .title h2{
