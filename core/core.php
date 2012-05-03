@@ -70,15 +70,17 @@ function array_drill_set($array_path,$value,&$data){
     }
 }
 
-function data_load($ID){
+function data_load($ID, &$todata = FALSE){
     /*
      * Load an item of data from the database
      */
     global $db;
     global $data;
     
-    $data['_content'][$ID] = array();
-    $datarecord =& $data['_content'][$ID];
+    if ($todata === FALSE) { $todata =& $data['_content']; }
+    
+    $todata[$ID] = array();
+    $datarecord =& $todata[$ID];
     
     $records = mysql_query('SELECT * FROM sc_index WHERE ID = ' . $ID . ' ');
     while ($record = mysql_fetch_assoc($records)){

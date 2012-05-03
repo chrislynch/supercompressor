@@ -6,7 +6,7 @@ function action_seo_go(&$data){
     // Title
     if (sizeof($data['_content']) == 1){
         foreach($data['_content'] as $contentItem){
-            array_drill_set('seo.title',$contentItem['Title'],$data);
+            array_drill_set('seo.title',@$contentItem['Title'],$data);
         }
     } else {
         array_drill_set('seo.title','SEO Title',$data);

@@ -167,6 +167,7 @@ body {
 
 .search-result{
     margin-bottom: 5px;
+    margin-right: 2px;
 
     border-style: solid;
     border-width: 2px;
@@ -178,12 +179,8 @@ body {
 
 }
 
-.search-result .title h2{
+.search-result h2{
     font-size: 14pt;
-}
-
-.search-result .teaser {
-    font-size: 8pt;
 }
 
 .product-image {
@@ -206,6 +203,80 @@ body {
 }
 
 .search-result input[type="submit"]{
+    background-attachment:initial;
+    background-clip:initial;
+    background-color:orange;
+    background-image:initial;
+    background-origin:initial;
+    background-position:initial initial;
+    background-repeat:initial initial;
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+    border-top-left-radius:24px;
+    border-top-right-radius:24px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+}
+
+/* HOMEPAGE SEARCH RESULT */
+
+#home h1 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-family: 'Belleza', sans-serif;
+    color: navy;
+    font-size: 24pt;
+}
+
+#home h2{
+    color: navy;
+    font-size: 16pt;
+    border-bottom: solid;
+    border-bottom-color: gainsboro;
+}
+
+.product-home{
+    margin-bottom: 5px;
+    margin-right: 2px !important;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: gainsboro;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    text-align: center;
+    height: 350px;
+}
+
+.product-home .teaser {
+    font-size: 8pt;
+}
+
+.product-image {
+    overflow: hidden;
+    padding: 2px;
+    width: 95%
+}
+
+.product-home .price-list{
+    text-decoration: line-through;
+}
+
+.product-home .price-sell {
+    font-size: 14pt;
+    font-weight: bold;
+    color: red;
+}
+
+.product-home .price-saving {
+    color: red;
+}
+
+.product-home input[type="submit"]{
     background-attachment:initial;
     background-clip:initial;
     background-color:orange;
