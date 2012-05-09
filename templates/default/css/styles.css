@@ -341,3 +341,20 @@ body {
     height:40px;
     width:100px;
 }
+
+/* FOOTER */
+#page-footer {
+    background: gainsboro;
+    min-height: 180px;
+    margin-bottom: -20px;
+}
+
+#page-footer ul{
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+#page-footer li{
+    
+}

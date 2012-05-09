@@ -54,16 +54,15 @@ function array_drill_set($array_path,$value,&$data){
      */
     if (strstr($array_path,'.')){
         $array_path = explode('.',$array_path);
-        $data_target =& $data[$array_path[0]];
-
+        $data_target =& $data;
+        
         while(sizeof($array_path) > 1){
             $array_path_item = array_shift($array_path);
-            if (!isset($data[$array_path_item])){
-                $data[$array_path_item] = array();
+            if (!isset($data_target[$array_path_item])){
+                $data_target[$array_path_item] = array();
             }
-            $data_target =& $data[$array_path_item];
+            $data_target =& $data_target[$array_path_item];
         }
-
         $data_target[$array_path[0]] = $value;
     } else {
         $data[$array_path] = $value;
