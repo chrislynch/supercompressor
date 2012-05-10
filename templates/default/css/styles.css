@@ -34,7 +34,7 @@ body {
     color: inherit;
 }
 
-#logo .megastore {
+#logo .centric {
     color: gray;
 }
 
@@ -43,58 +43,55 @@ body {
     color: gray;
 }
 
-#search input[type="text"] {
-    width: 128px;
-}
-
-#search input[type="submit"] {
-    width: 62px;
-}
-
 #primary-menu {
     padding-top : 6px;
     padding-bottom: 5px;
     overflow: hidden;
-    height: 40px;
-}
-
-#primary-menu #search {
-    padding-left: 5px;
-    padding-top: 9px;
-    padding-bottom: 4px;
-}
-
-#primary-menu ul {
-    list-style: none;
-    margin-left: 0px;
-    margin-top: 11px;
-    padding-left: 0px;
-    height: 40px;
-}
-
-#primary-menu .menu-item{
-    border-radius: 10px 10px 0px 0px; 
-    -moz-border-radius: 10px 10px 0px 0px; 
-    -webkit-border-radius: 10px 10px 0px 0px; 
-    border: 1px solid gray;
-    background: gainsboro;
+    
+    border-radius: 10px 10px 10px 10px; 
+    -moz-border-radius: 10px 10px 10px 10px; 
+    -webkit-border-radius: 10px 10px 10px 10px; 
+    border: 1px solid goldenrod;
+    background: gold;
     display: inline;
-    padding-top: 11px;
-    padding-bottom: 15px;
-    font-size: 8pt;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    
+    /* font-size: 8pt; */
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-#primary-menu li {
-    text-align: center;
-    font-weight: bold;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px
+#primary-menu #search input[type="text"] {
+    width: 128px;
 }
 
-#primary-menu .sale {
-    background: red;
-    color: white;
+#primary-menu #search input[type="submit"] {
+    width: 62px;
+}
+
+#primary-menu #sections {
+    padding-top: 5px;
+}
+
+#primary-menu #sections ul {
+    list-style: none;
+    display: inline;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-top: 11px;
+}
+
+#primary-menu #sections ul li {
+    display: inline;
+    border-right-style: solid;
+    border-right-color: goldenrod;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2px;
+    font-size: 12pt;
 }
 
 .pager {
