@@ -7,6 +7,18 @@ body {
     background-image: url("images/background.jpg");
 }
 
+h1 {
+    font-family: 'Belleza', sans-serif;
+    color: navy;
+    font-size: 24pt;
+}
+
+h2 {
+    color: navy;
+    font-family: 'Belleza', sans-serif;
+    font-size: 16pt;    
+}
+
 .container-container {
     margin-left: auto;
     margin-right: auto;
@@ -91,6 +103,8 @@ body {
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 2px;
+    font-family: 'Belleza', sans-serif;
+    font-weight: bold;
     font-size: 12pt;
 }
 
@@ -221,14 +235,9 @@ body {
 #home h1 {
     margin-top: 0px;
     margin-bottom: 5px;
-    font-family: 'Belleza', sans-serif;
-    color: navy;
-    font-size: 24pt;
 }
 
 #home h2{
-    color: navy;
-    font-size: 16pt;
     border-bottom: solid;
     border-bottom-color: gainsboro;
 }
