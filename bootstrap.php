@@ -13,9 +13,9 @@ $data['db']['password']  = '';
 $data['db']['schema']    = 'sc';
 
 $data['actions'] = array();
-$data['actions'][-2] = 'menu';
 $data['actions'][-1] = 'cart';
 $data['actions'][1]  = 'seo';
+$data['actions'][2] = 'menu';
 
 // Pager configuration
 array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
@@ -37,6 +37,14 @@ $data['_content'] = array();
 
 $dir_template   = 'templates/default/';
 $dir_site       = 'sites/localhost/';
+
+// SEO Starter
+array_drill_set('seo.title','centric',$data);
+array_drill_set('seo.abstract','SEO Abstract',$data);
+array_drill_set('seo.keywords','SEO Keywords',$data);
+    
+array_drill_set('seo.copyright','eCommerceCentric Ltd. http://www.ecommercecentric.co.uk',$data);
+array_drill_set('seo.google.analytics.account','',$data);
 
 // Load the custom configuration file.
 if (file_exists($dir_site . 'config.php')){include $dir_site . 'config.php';}

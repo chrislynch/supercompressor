@@ -44,8 +44,7 @@ mysql_close($db);
 $return = '';
 $return .= render_template($dir_template . 'html-header.html',$data);
 $return .= render_template($dir_template . 'page-header.html',$data);
-$return .= render_template($dir_template . 'sidebar-left-1.html',$data);
-$return .= render_template($dir_template . 'sidebar-left-2.html',$data);
+$return .= render_template($dir_template . 'sidebar-left.html',$data);
 $return .= render_template($dir_template . 'content-header.html',$data);
 
 if (isset($data['templates']) && sizeof($data['templates']) > 0){
@@ -59,8 +58,7 @@ if (isset($data['templates']) && sizeof($data['templates']) > 0){
 // $return .= render_template($dir_template . 'content.html',$data);
 
 $return .= render_template($dir_template . 'content-footer.html',$data);
-$return .= render_template($dir_template . 'sidebar-right-1.html',$data);
-$return .= render_template($dir_template . 'sidebar-right-2.html',$data);
+$return .= render_template($dir_template . 'sidebar-right.html',$data);
 $return .= render_template($dir_template . 'page-footer.html',$data);
 $return .= render_template($dir_template . 'html-footer.html',$data);
 

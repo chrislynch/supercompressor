@@ -17,10 +17,10 @@ function action_menu_go(&$data){
         $data['menu'][$menuKey] = array();
         
         $menusSQL = 'SELECT value as category,count(value) as members
-                 FROM   sc_data 
-                 WHERE  field = "' . $menuField . '"
-                 GROUP BY value
-                 ORDER BY value';
+                     FROM   sc_data 
+                     WHERE  field = "' . $menuField . '"
+                     GROUP BY value
+                     ORDER BY value';
         $menusData = mysql_query($menusSQL,$db);
         
         while($menuItem = mysql_fetch_assoc($menusData)){

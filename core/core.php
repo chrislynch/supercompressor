@@ -208,4 +208,10 @@ function url_build($params,$url = '', $keepparameters = TRUE){
     return $return;
 }
 
+function url_ify($url){
+    $url = str_ireplace(' ', '-', $url);
+    return $url;
+}
+
+
 ?>
