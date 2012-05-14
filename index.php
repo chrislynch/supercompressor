@@ -11,18 +11,18 @@ include 'bootstrap.php';
  */
 if (isset($_REQUEST['action'])){
     // We have requested a specific action
-    $data['actions'][0] = $_REQUEST['action'];
+    $data['_configuration']['actions'][0] = $_REQUEST['action'];
 } elseif (isset($_REQUEST['x'])){
     // We are looking for a specific action based on URL.
-    $data['actions'][0] = url_action($_REQUEST['x'], $data);
+    $data['_configuration']['actions'][0] = url_action($_REQUEST['x'], $data);
 } else {
     // No URL defined, so we are on the home page
-    $data['actions'][0] = 'home';
+    $data['_configuration']['actions'][0] = 'home';
 }
 
-ksort($data['actions']);
+ksort($data['_configuration']['actions']);
 
-foreach($data['actions'] as $action){
+foreach($data['_configuration']['actions'] as $action){
     if (file_exists($dir_site . '/actions/' . $action . '.php')){
         include_once $dir_site . '/actions/' . $action . '.php';
     } else {
@@ -52,7 +52,7 @@ if (isset($data['templates']) && sizeof($data['templates']) > 0){
         $return .= render_template($dir_template . $template . '.html',$data);
     }
 } else {
-    $return .= render_template($dir_template . 'actions/' . $data['actions'][0] . '.html',$data);
+    $return .= render_template($dir_template . 'actions/' . $data['_configuration']['actions'][0] . '.html',$data);
 }
 
 // $return .= render_template($dir_template . 'content.html',$data);

@@ -7,15 +7,15 @@ $data = array();
 
 $data['_configuration'] = array();
 
-$data['db']['server']    = 'localhost'; 
-$data['db']['username']  = 'root'; 
-$data['db']['password']  = '';
-$data['db']['schema']    = 'sc';
+$data['_configuration']['db']['server']    = 'localhost'; 
+$data['_configuration']['db']['username']  = 'root'; 
+$data['_configuration']['db']['password']  = '';
+$data['_configuration']['db']['schema']    = 'sc';
 
-$data['actions'] = array();
-$data['actions'][-1] = 'cart';
-$data['actions'][1]  = 'seo';
-$data['actions'][2] = 'menu';
+$data['_configuration']['actions'] = array();
+$data['_configuration']['actions'][-1] = 'cart';
+$data['_configuration']['actions'][1]  = 'seo';
+$data['_configuration']['actions'][2] = 'menu';
 
 // Pager configuration
 array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
@@ -49,7 +49,7 @@ array_drill_set('seo.google.analytics.account','',$data);
 // Load the custom configuration file.
 if (file_exists($dir_site . 'config.php')){include $dir_site . 'config.php';}
 
-$db = mysql_connect($data['db']['server'], $data['db']['username'], $data['db']['password']);
-mysql_select_db($data['db']['schema'],$db);
+$db = mysql_connect($data['_configuration']['db']['server'], $data['_configuration']['db']['username'], $data['_configuration']['db']['password']);
+mysql_select_db($data['_configuration']['db']['schema'],$db);
 
 ?>

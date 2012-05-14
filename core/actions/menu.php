@@ -18,7 +18,7 @@ function action_menu_go(&$data){
     // Build code for regular menus
     foreach($menus as $menuKey => $menuField){
         
-        $data['menu'][$menuKey] = array();
+        $data['menu']['browse'][$menuKey] = array();
         
         $menusSQL = 'SELECT value as category,count(value) as members
                      FROM   sc_data 
@@ -38,7 +38,7 @@ function action_menu_go(&$data){
         }
     }
     
-    if ($data['actions'][0] == 'search') {
+    if ($data['_configuration']['actions'][0] == 'search') {
         // We ALSO need to produce filters, to run ahead of our browses       
         $IDs = implode(',',$data['search']['results']);
         
