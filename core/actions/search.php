@@ -9,7 +9,8 @@ function action_search_go(&$data){
     $maxitems = $itemsperPage * $maxPages;
     
     // Build the initial search
-    $searchSQL = 'SELECT sc.ID from sc_index sc ';
+    $selectSQL = 'SELECT sc.ID from sc_index sc ';
+    $searchSQL = '';
     
     // Add in any keyword searches
     /*
@@ -37,25 +38,36 @@ function action_search_go(&$data){
     $searchSQLLimit = ' LIMIT ' . $maxitems;
     
     // Run the SQL and get the size of the resultset
-    $searchData = mysql_query($searchSQL . $searchSQLLimit);
+    $searchData = mysql_query($selectSQL . $searchSQL . $searchSQLLimit);
+    
+    // Set up the pager
+    
     $noofResults = mysql_num_rows($searchData);
     $noofPages = floor($noofResults / $itemsperPage);
     if (($noofResults % $itemsperPage) > 0) { $noofPages ++; }
-    $data['pager'] = array('pages' => $noofPages );
+    $data['pager'] = array('pages' => $noofPages );   
     
-    // Set up the pager
     if (isset($_GET['page'])){
-        $searchSQLLimit = ' LIMIT ' . ($_GET['page'] * $itemsperPage) . ',' . $itemsperPage;
+        $pageStart =  ($_GET['page'] * $itemsperPage);
+        $pageEnd = $itemsperPage + $pageStart;
     } else {
-        $searchSQLLimit = ' LIMIT 0,' . $itemsperPage;
+        $pageStart =  0;
+        $pageEnd = $itemsperPage + $pageStart;
     }
 
-    // Now run the SQL with the limits in place
-    if (isset($_GET['debug'])) { print $searchSQL . $searchSQLLimit; }
-    $searchData = mysql_query($searchSQL . $searchSQLLimit);
+    // $searchData = mysql_query($searchSQL . $searchSQLLimit);
+    
+    $item = 0;
+    $data['search'] = array();
+    $data['search']['results'] = array();
     
     while($record = mysql_fetch_assoc($searchData)){
-        data_load($record['ID']);
+        $data['search']['results'][$record['ID']] = $record['ID'];
+        if ($item >= $pageStart && $item < $pageEnd){
+            data_load($record['ID']);
+        }
+        $item++;
+        
     }
 }
 

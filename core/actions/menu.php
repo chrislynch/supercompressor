@@ -38,12 +38,8 @@ function action_menu_go(&$data){
     }
     
     if ($data['actions'][0] == 'search') {
-        // We ALSO need to produce filters, to run ahead of our browses
-        $IDs = array();
-        foreach($data['_content'] as $key=>$value){
-            $IDs[] = $key;
-        }
-        $IDs = implode(',',$IDs);
+        // We ALSO need to produce filters, to run ahead of our browses       
+        $IDs = implode(',',$data['search']['results']);
         
         foreach($menus as $menuKey => $menuField){
             if ($menuKey !== 'Sections'){
