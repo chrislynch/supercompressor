@@ -9,9 +9,14 @@ function action_search_go(&$data){
     $maxitems = $itemsperPage * $maxPages;
     
     // Build the initial search
-    $selectSQL = 'SELECT sc.ID from sc_index sc ';
-    $searchSQL = '';
     
+    if (isset($_REQUEST['search'])){
+        $selectSQL = 'SELECT sc.ID from sc_index sc JOIN sc_search scs ON scs.ID = sc.ID';
+        $searchSQL = '';
+    } else {
+        $selectSQL = 'SELECT sc.ID from sc_index sc ';
+        $searchSQL = '';
+    }
     // Add in any keyword searches
     /*
      * $SQL .= ' MATCH(s.search_text) AGAINST ("' . $keywords .'") as Relevance,';
