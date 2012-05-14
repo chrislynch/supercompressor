@@ -10,6 +10,17 @@ function action_search_go(&$data){
     
     // Build the initial search
     $searchSQL = 'SELECT sc.ID from sc_index sc ';
+    
+    // Add in any keyword searches
+    /*
+     * $SQL .= ' MATCH(s.search_text) AGAINST ("' . $keywords .'") as Relevance,';
+				$SQL .= ' MATCH(s.search_text) AGAINST ("' . $keywords .'" WITH QUERY EXPANSION) as Expanded_Relevance'; 
+				if ($warp_search_usePhraseMatch){ $SQL .= ',';}
+			}
+			if ($warp_search_usePhraseMatch){ $SQL .= ' MATCH(search_text) AGAINST ("""' . $keywords . '""" IN BOOLEAN MODE) as PhraseMatch ';}
+     */
+    
+    // Add on browses and filters
     $i = 1;
     foreach($_REQUEST as $key=>$value){
         $key = str_ireplace('_', '.', $key);
