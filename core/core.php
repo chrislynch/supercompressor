@@ -133,7 +133,8 @@ function data_save($dataitem){
 
 function data_save_item($ID,$datakey,$datavalue){
     global $db;
-    $sc_index_array = array('ID','Type','URL','Status');
+    // $sc_index_array = array('ID','Type','URL','Status');
+    $sc_index_array = array(); // Changed core to make everything available to search
     
     if (in_array($datakey, $sc_index_array)){
         // This item is part of the sc_index core, and so we can ignore it

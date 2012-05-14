@@ -19,8 +19,13 @@ function action_menu_go(&$data){
         $menusSQL = 'SELECT value as category,count(value) as members
                      FROM   sc_data 
                      WHERE  field = "' . $menuField . '"
-                     GROUP BY value
-                     ORDER BY value';
+                     GROUP BY value ' ;
+        if ($menuKey == 'Sections') {
+            $menusSQL .= 'ORDER BY count(value) DESC';
+        } else {
+            $menusSQL .= 'ORDER BY value';
+        }
+                     
         $menusData = mysql_query($menusSQL,$db);
         
         while($menuItem = mysql_fetch_assoc($menusData)){
