@@ -8,6 +8,7 @@ function action_blog_go(&$data){
     $_REQUEST['search.Type'] = 'Blog';
     action_search_go($data);
     
+    // TODO: Build some standard blog components, like archives and tag clouds etc.
 }
     
 
