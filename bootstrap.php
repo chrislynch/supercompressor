@@ -1,7 +1,14 @@
 <?php
+/*
+ * =============================================================================
+ * GENERIC STARTUP
+ * =============================================================================
+ */
 
 include 'core/core.php';
 include 'core/widgets.php';
+
+$dir_template   = 'templates/default/';
 
 $data = array();
 
@@ -43,14 +50,37 @@ array_drill_set('seo.keywords','SEO Keywords',$data);
 array_drill_set('seo.copyright','eCommerceCentric Ltd. http://www.ecommercecentric.co.uk',$data);
 array_drill_set('seo.google.analytics.account','',$data);
 
-// Load the custom configuration file and templates for this site
-$dir_template   = 'templates/default/';
-// $dir_site       = 'sites/localhost/';
-
+/*
+ * =============================================================================
+ * IDENTIFY CURRENT SITE
+ * =============================================================================
+ */
 array_drill_set('_configuration.site.domain',$_SERVER['HTTP_HOST'],$data);
 array_drill_set('_configuration.site.domaindir','sites/' . $_SERVER['HTTP_HOST'] . '/',$data);
 array_drill_set('_configuration.site.configfile','sites/' . $_SERVER['HTTP_HOST'] . '/config.php',$data);
 array_drill_set('_configuration.site.templatedir',$_SERVER['HTTP_HOST'],$data);
+
+/*
+ * ===================================================================================
+ * SITE SPECIFIC VALUES BELOW. THESE ARE DEFAULTS AND SHOULD BE REPLACED IN CONFIG.PHP
+ * ===================================================================================
+ */
+
+array_drill_set('_configuration.site.name','eCommerceCentric Ltd',$data);
+array_drill_set('_configuration.site.strapline','Centered on eCommerce',$data);
+
+
+/*
+ * ===================================================================================
+ * END OF SITE SPECIFIC VALUES.
+ * ===================================================================================
+ */
+
+/*
+ * =============================================================================
+ * INCLUDE CONFIG.PHP AND CONNECT TO DATABASE
+ * =============================================================================
+ */
 
 if (file_exists(array_drill_get('_configuration.site.configfile',$data))){
     include array_drill_get('_configuration.site.configfile',$data);
