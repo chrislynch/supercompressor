@@ -8,6 +8,12 @@ function action_install_import_go(&$data){
     
     cliPrint('Import Started');
     
+    // Clear out what we already have
+    mysql_query('TRUNCATE sc_index');
+    mysql_query('TRUNCATE sc_data');
+    mysql_query('TRUNCATE sc_search');
+    mysql_query('TRUNCATE sc_link');
+    
     // Ascertain size of CSV file
     $csvfile = fopen('import.csv','r');
     $rowcount = -1;

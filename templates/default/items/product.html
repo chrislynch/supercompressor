@@ -14,12 +14,12 @@
             <!-- <input type="submit" value="Add to Cart"> -->
         </div>
         <div class="span-8 last">
-            @@content.Teaser@@&nbsp;(<a href="#productdescription">Read More</a>)
+            @@content.Teaser?markdown=true@@&nbsp;(<a href="#productdescription">Read More</a>)
         </div>
         <hr>
         <div class="span-8 last">
             Product Code: @@content.Product.SKU@@<br>
-            Stock: @@content.Stock.Message@@<br>
+            Stock: @@content.Product.Stock.Message@@<br>
         </div>
         
         <hr>
@@ -35,7 +35,7 @@
     </div>
     <div class="span-15 last">        
         <a name="productdescription"><h2>@@content.Title@@ Description</h2></a>
-        @@content.Body@@
+        @@content.Body?markdown=true@@
         <h2>@@content.Title@@ Specification</h2>
         @@content.Specification@@
     </div>

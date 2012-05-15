@@ -106,6 +106,12 @@ function render_widget($widget,$data, $recursion_depth = 0){
         }
     }
     
+    if(isset($widget_params['markdown'])){
+        if (strlen($return) > 0){
+            $return = Markdown($return);
+        }
+    }
+    
     return $return;
 }
 ?>
