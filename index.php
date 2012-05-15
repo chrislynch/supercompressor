@@ -23,8 +23,8 @@ if (isset($_REQUEST['action'])){
 ksort($data['_configuration']['actions']);
 
 foreach($data['_configuration']['actions'] as $action){
-    if (file_exists($dir_site . '/actions/' . $action . '.php')){
-        include_once $dir_site . '/actions/' . $action . '.php';
+    if (file_exists(array_drill_get('_configuration.site.domaindir',$data) . 'actions/' . $action . '.php')){
+        include_once array_drill_get('_configuration.site.domaindir',$data) . 'actions/' . $action . '.php';
     } else {
         include_once 'core/actions/' . $action . '.php';
     }

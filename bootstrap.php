@@ -35,9 +35,6 @@ array_drill_set('_configuration.about.long','<p>Pellentesque habitant morbi tris
 // Content Starter
 $data['_content'] = array();
 
-$dir_template   = 'templates/default/';
-$dir_site       = 'sites/localhost/';
-
 // SEO Starter
 array_drill_set('seo.title','centric',$data);
 array_drill_set('seo.abstract','SEO Abstract',$data);
@@ -46,8 +43,18 @@ array_drill_set('seo.keywords','SEO Keywords',$data);
 array_drill_set('seo.copyright','eCommerceCentric Ltd. http://www.ecommercecentric.co.uk',$data);
 array_drill_set('seo.google.analytics.account','',$data);
 
-// Load the custom configuration file.
-if (file_exists($dir_site . 'config.php')){include $dir_site . 'config.php';}
+// Load the custom configuration file and templates for this site
+$dir_template   = 'templates/default/';
+// $dir_site       = 'sites/localhost/';
+
+array_drill_set('_configuration.site.domain',$_SERVER['HTTP_HOST'],$data);
+array_drill_set('_configuration.site.domaindir','sites/' . $_SERVER['HTTP_HOST'] . '/',$data);
+array_drill_set('_configuration.site.configfile','sites/' . $_SERVER['HTTP_HOST'] . '/config.php',$data);
+array_drill_set('_configuration.site.templatedir',$_SERVER['HTTP_HOST'],$data);
+
+if (file_exists(array_drill_get('_configuration.site.configfile',$data))){
+    include array_drill_get('_configuration.site.configfile',$data);
+}
 
 $db = mysql_connect($data['_configuration']['db']['server'], $data['_configuration']['db']['username'], $data['_configuration']['db']['password']);
 mysql_select_db($data['_configuration']['db']['schema'],$db);
