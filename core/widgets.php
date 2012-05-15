@@ -105,10 +105,15 @@ function render_widget($widget,$data, $recursion_depth = 0){
             $return = $return . $widget_params['postfix'];
         }
     }
-    
     if(isset($widget_params['markdown'])){
         if (strlen($return) > 0){
             $return = Markdown($return);
+        }
+    }
+    if(isset($widget_params['keywordify'])){
+        // TODO: Run the text through a keyword filter
+        if (strlen($return) > 0){
+            $return = str_ireplace('solar panel', '<strong>solar panel</strong>', $return);
         }
     }
     
