@@ -33,7 +33,7 @@ function action_search_go(&$data){
         if (strstr($key,'search.')){
             $joinID = 'scd' . $i;
             $searchKey = str_ireplace('search.', '', $key);
-            $searchSQL .= ' JOIN sc_data ' . $joinID . ' ON ' . $joinID . '.ID = sc.ID AND Field = "' . $searchKey . '" AND Value = "' . $value . '" ';
+            $searchSQL .= ' JOIN sc_data ' . $joinID . ' ON ' . $joinID . '.ID = sc.ID AND ' . $joinID . '.Field = "' . $searchKey . '" AND ' . $joinID . '.Value = "' . $value . '" ';
             $i ++;
         }
     }
@@ -42,7 +42,8 @@ function action_search_go(&$data){
     
     $searchSQLLimit = ' LIMIT ' . $maxitems;
     
-    // Run the SQL and get the size of the resultset
+    // Run the SQL and 
+    if(!isset($_REQUEST['debug'])){ print $selectSQL . $searchSQL . $searchSQLLimit; }
     $searchData = mysql_query($selectSQL . $searchSQL . $searchSQLLimit);
     
     // Set up the pager
