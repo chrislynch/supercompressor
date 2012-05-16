@@ -30,10 +30,12 @@ array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
 array_drill_set('pager.maxpages', 10, $data['_configuration']);
 
 // Category configuration
+/*
 array_drill_set('_configuration.categories.products.heading','Product',$data);
 array_drill_set('_configuration.categories.products.menu','Products',$data);
 array_drill_set('_configuration.categories.brand.heading','Brand',$data);
 array_drill_set('_configuration.categories.brand.menu','Brands',$data);
+*/
 
 // Content Starter
 $data['_content'] = array();

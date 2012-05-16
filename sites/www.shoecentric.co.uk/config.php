@@ -6,5 +6,4 @@ array_drill_set('_configuration.site.strapline','Design shoes, discount prices',
 
 array_drill_set('seo.title','ShoeCentric',$data);
 
-
 ?>

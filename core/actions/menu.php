@@ -11,9 +11,13 @@ function action_menu_go(&$data){
     $data['menu']['browse'] = array();
     $data['menu']['filter'] = array();
     
-    $menus = array('Products'  => 'Category.Product',
-                    'Brands'   => 'Category.Brand',
-                    'Sections' => 'Section');
+    $menus = array();
+    $menusData = mysql_query('SELECT SUBSTRING_INDEX(Field,".",-1), Field FROM sc_data WHERE Field LIKE "Category.%" GROUP BY Field');
+    while($menu = mysql_fetch_array($menusData)){
+        $menus[$menu[0]] = $menu[1];
+    }
+    $menus['Sections'] = 'Section';
+    ksort($menus);
     
     // Build code for regular menus
     foreach($menus as $menuKey => $menuField){
@@ -57,8 +61,9 @@ function action_menu_go(&$data){
             $menusData = mysql_query($menusSQL,$db);
 
             while($menuItem = mysql_fetch_assoc($menusData)){
-                $data['menu']['filter'][$menuKey][] = array('link'=>'?action=search&search.' . $menuField . '=' . $menuItem['category'],
-                                                    'text'=> $menuItem['category'] . ' (' . $menuItem['members'] . ')');
+                $data['menu']['filter'][$menuKey][] = array('link'=>url_build(array('action' => 'search',
+                                                                                    'search.' . $menuField => $menuItem['category']),'',TRUE),
+                                                            'text'=> $menuItem['category'] . ' (' . $menuItem['members'] . ')');
             }
         }
     }

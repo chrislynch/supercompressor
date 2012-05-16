@@ -193,6 +193,7 @@ function url_build($params,$url = '', $keepparameters = TRUE){
     if ($keepparameters){
         foreach($_GET as $key=>$value){
             if (!(key_exists($key, $params)) && $key !== 'q'){
+                $key = str_ireplace('_', '.', $key);
                 $urlparams .= '&' . $key . '=' . urlencode($value); 
             }
         }	
@@ -200,11 +201,11 @@ function url_build($params,$url = '', $keepparameters = TRUE){
 	
     foreach($params as $key=>$value){
         if(strlen($value) > 0){
-            $suppliedparams .= '&' . $key . '=' . $value;	
+            $suppliedparams .= '&' . $key . '=' . $value;
         }
     }
 	
-    $return .= $suppliedparams . $urlparams;
+    $return .= $urlparams . $suppliedparams;
 	
     return $return;
 }
