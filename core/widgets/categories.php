@@ -15,6 +15,7 @@ function widget_categories_go($widget_field,$widget_params,&$data){
                 $return .= '<ul>@@list.menu.filter.' . $category . '?li-class=menu-item@@</ul>';
             }
         }
+        if ($return == '') { $return = '&nbsp;';}
     }
     
     if ($return == ''){

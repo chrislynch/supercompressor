@@ -62,7 +62,7 @@ function action_menu_go(&$data){
 
             while($menuItem = mysql_fetch_assoc($menusData)){
                 $data['menu']['filter'][$menuKey][] = array('link'=>url_build(array('action' => 'search',
-                                                                                    'search.' . $menuField => $menusData['category'])),
+                                                                                    'search.' . $menuField => $menuItem['category']),'',TRUE),
                                                             'text'=> $menuItem['category'] . ' (' . $menuItem['members'] . ')');
             }
         }
