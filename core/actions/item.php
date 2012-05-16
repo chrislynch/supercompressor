@@ -9,9 +9,8 @@ function action_item_go(&$data){
      * This function is here to do any cleaning up activities after a single item load
      * and then to set up the template that we will be using
      */
-    $data['templates'] = array();
     foreach($data['_content'] as $key=>$item){
-        $data['templates'][] = 'items/' . strtolower($item['Type']);
+        $data['templates'][0] = 'items/' . strtolower($item['Type']);
     }
 }
 
