@@ -15,7 +15,7 @@ function action_install_import_go(&$data){
     mysql_query('TRUNCATE sc_link');
     
     // Ascertain size of CSV file
-    $csvfile = fopen('import.csv','r');
+    $csvfile = fopen(array_drill_get('_configuration.site.domaindir',$data) . 'import.csv','r');
     $rowcount = -1;
     while($csvrecord = fgetcsv($csvfile)){
         $rowcount ++;
