@@ -26,11 +26,10 @@ $data['_configuration']['actions'][1]  = 'seo';
 $data['_configuration']['actions'][2] = 'menu';
 
 // Templates
-$data['templates'][-2] = 'sidebar-left';
-$data['templates'][-1] = 'content-header';
-$data['templates'][1] = 'content-footer';
-$data['templates'][2] = 'sidebar-right';
-
+$data['_configuration']['templates'][-2] = 'sidebar-left';
+$data['_configuration']['templates'][-1] = 'content-header';
+$data['_configuration']['templates'][1] = 'content-footer';
+$data['_configuration']['templates'][2] = 'sidebar-right';
 
 // Pager configuration
 array_drill_set('pager.itemsperpage', 10, $data['_configuration']);
@@ -44,8 +43,9 @@ array_drill_set('_configuration.categories.brand.heading','Brand',$data);
 array_drill_set('_configuration.categories.brand.menu','Brands',$data);
 */
 
-// Content Starter
+// Content & Templates Starters
 $data['_content'] = array();
+$data['templates'] = $data['_configuration']['templates'];
 
 // SEO Starter
 array_drill_set('seo.title','centric',$data);
@@ -54,6 +54,15 @@ array_drill_set('seo.keywords','SEO Keywords',$data);
     
 array_drill_set('seo.copyright','eCommerceCentric Ltd. http://www.ecommercecentric.co.uk',$data);
 array_drill_set('seo.google.analytics.account','',$data);
+
+/*
+ * =============================================================================
+ * ACTION CONFIGURATION
+ * =============================================================================
+ */
+array_drill_set('_configuration.content.span',15,$data);
+
+array_drill_set('_configuration.cart.on',FALSE,$data);
 
 /*
  * =============================================================================

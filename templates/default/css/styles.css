@@ -202,10 +202,16 @@ h2 {
     font-size: 14pt;
 }
 
+.product-image-container{
+    height: 230px;
+    overflow:hidden;
+    text-align:center;
+}
+
 .product-image {
     overflow: hidden;
     padding: 2px;
-    width: 95%
+    height: 95%
 }
 
 .search-result .price-list{
@@ -270,12 +276,6 @@ h2 {
     font-size: 8pt;
 }
 
-.product-image {
-    overflow: hidden;
-    padding: 2px;
-    width: 95%
-}
-
 .product-home .price-list{
     text-decoration: line-through;
 }
@@ -323,6 +323,15 @@ h2 {
 .product h2 {
     color: navy;
 }
+
+.product .product-image-container {
+    height: 320px;
+}
+
+.product .product-image-container .product-image {
+    height: 98%;
+}
+
 
 .product .price-list{
     font-size: 10pt;
