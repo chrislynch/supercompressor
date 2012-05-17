@@ -125,19 +125,28 @@ h2 {
     padding-left: 5px;
 }
 
-#sidebar-left-1 h3 {
+#sidebar-left {
+    float:left;
+    width: 160px;
+    margin-right: 10px;
+    border-right-style: solid;
+    border-right-color: gainsboro;
+    border-right-width: 1px;
+}
+
+#sidebar-left h3 {
     color: navy;
     margin-top: 2px;
     margin-bottom: 5px;
 }
 
-#sidebar-left-1 ul {
+#sidebar-left ul {
     list-style-type: none;
     padding-left: 0;
     margin-top: 0;
 }
 
-#sidebar-left-1 li {
+#sidebar-left li {
     padding-bottom: 2px;
     margin-bottom: 3px;
     margin-right: 10px;
@@ -146,12 +155,12 @@ h2 {
     border-bottom-color: gainsboro;
 }
 
-#sidebar-left-1 li a{
+#sidebar-left li a{
     text-decoration: none;
     color: black;
 }
 
-#sidebar-left-1 li a:hover{
+#sidebar-left li a:hover{
     text-decoration: none;
     color: red;
 }
@@ -160,15 +169,10 @@ h2 {
     text-align: right;
 }
 
-#sidebar-left-1 {
-    border-right-style: solid;
-    border-right-color: gainsboro;
-    border-right-width: 1px;
-}
-
 #sidebar-right {
     /* Need to make this slighly smaller than a span-5 to take into account borders in other places */
    width: 189px;
+   float: right;
 }
 
 #twitter {
