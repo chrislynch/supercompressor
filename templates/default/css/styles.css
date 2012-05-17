@@ -108,26 +108,8 @@ h2 {
     font-size: 12pt;
 }
 
-.pager {
-    text-align: right;
-}
-
-.pager ul{
-    float: right;
-    list-style: none;
-    margin-top: 0px;
-    margin-left: 0px;
-    padding-left: 0px;
-}
-
-.pager ul li{
-    display: inline;
-    padding-left: 5px;
-}
-
 #sidebar-left {
-    float:left;
-    width: 160px;
+    /* width: 160px; */
     margin-right: 10px;
     border-right-style: solid;
     border-right-color: gainsboro;
@@ -180,6 +162,23 @@ h2 {
 }
 
 #facebook {
+    padding-left: 5px;
+}
+
+.pager {
+    text-align: right;
+}
+
+.pager ul{
+    float: right;
+    list-style: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.pager ul li{
+    display: inline;
     padding-left: 5px;
 }
 

@@ -26,10 +26,10 @@ $data['_configuration']['actions'][1]  = 'seo';
 $data['_configuration']['actions'][2] = 'menu';
 
 // Templates
-$data['templates'][-3] = 'sidebar-left';
-$data['templates'][-2] = 'sidebar-right';
+$data['templates'][-2] = 'sidebar-left';
 $data['templates'][-1] = 'content-header';
 $data['templates'][1] = 'content-footer';
+$data['templates'][2] = 'sidebar-right';
 
 
 // Pager configuration
