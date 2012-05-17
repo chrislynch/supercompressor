@@ -39,26 +39,27 @@ foreach($data['_configuration']['actions'] as $action){
 mysql_close($db);
 
 /*
+ * Final identification of templates and putting templates in order
+ */
+if (!isset($data['templates'][0])){
+    $data['templates'][0] = 'actions/' . $data['_configuration']['actions'][0];
+}
+ksort($data['templates']);
+
+/*
  * Render the page
  */
 $return = '';
 $return .= render_template($dir_template . 'html-header.html',$data);
 $return .= render_template($dir_template . 'page-header.html',$data);
-$return .= render_template($dir_template . 'sidebar-left.html',$data);
-$return .= render_template($dir_template . 'content-header.html',$data);
-
-if (isset($data['templates']) && sizeof($data['templates']) > 0){
-    foreach($data['templates'] as $template){
-        $return .= render_template($dir_template . $template . '.html',$data);
-    }
-} else {
-    $return .= render_template($dir_template . 'actions/' . $data['_configuration']['actions'][0] . '.html',$data);
+// $return .= render_template($dir_template . 'sidebar-left.html',$data);
+// $return .= render_template($dir_template . 'content-header.html',$data);
+foreach($data['templates'] as $templateID => $templatefile){
+    $return .= render_template($dir_template . $templatefile . '.html', $data);
 }
-
 // $return .= render_template($dir_template . 'content.html',$data);
-
-$return .= render_template($dir_template . 'content-footer.html',$data);
-$return .= render_template($dir_template . 'sidebar-right.html',$data);
+// $return .= render_template($dir_template . 'content-footer.html',$data);
+// $return .= render_template($dir_template . 'sidebar-right.html',$data);
 $return .= render_template($dir_template . 'page-footer.html',$data);
 $return .= render_template($dir_template . 'html-footer.html',$data);
 

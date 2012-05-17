@@ -1,0 +1,3 @@
+ID,Type,URL,Status,Title,Section,Category.Product,Category.Brand,Body,Teaser,Image,Product.SKU,Product.ListPrice,Product.SellPrice,Product.Saving,Product.Stock.Value,Product.Stock.Message,Specification.Peak Power (pmPP),Specification.Open Circuit Voltage,Specification.Short Circuit Current
+1,Product,240w-solar-panel,1,Everfree 240W Solar Panel,Products,Single Panels,Everfree,,Every Everfree solar panel is manufactured to the highest standards and rigorously tested before being shipped to us.,,PANEL1,180,180,0,0,In Stock,240,36.9,8.67
+1,Product,240w-solar-panel-3-pack,1,Everfree 240W Solar Panel Triple Pack,Products,3 Panel Packs,Everfree,,"Bundled together at a discount, saving you even more money",,PANEL3,540,500,40,0,In Stock,240,36.9,8.67
