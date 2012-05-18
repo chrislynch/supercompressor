@@ -84,12 +84,14 @@ function data_load($ID, &$todata = FALSE){
     $records = mysql_query('SELECT * FROM sc_index WHERE ID = ' . $ID . ' ');
     while ($record = mysql_fetch_assoc($records)){
         foreach($record as $field=>$value){
+            if ($field == 'URL') { $value = '?x=' . $value; }
             array_drill_set($field, $value, $datarecord);
         }
     }
     
     $records = mysql_query('SELECT * FROM sc_data WHERE ID = ' . $ID . ' ');
     while ($record = mysql_fetch_assoc($records)){
+        if ($record['Field'] == 'URL') { $record['Value'] = '?x=' . $record['Value']; }
         array_drill_set($record['Field'], $record['Value'], $datarecord);
     }
     
