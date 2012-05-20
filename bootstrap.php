@@ -26,10 +26,14 @@ $data['_configuration']['actions'][1]  = 'seo';
 $data['_configuration']['actions'][2] = 'menu';
 
 // Templates
+$data['_configuration']['templates'][-4] = 'html-header';
+$data['_configuration']['templates'][-3] = 'page-header';
 $data['_configuration']['templates'][-2] = 'sidebar-left';
 $data['_configuration']['templates'][-1] = 'content-header';
 $data['_configuration']['templates'][1] = 'content-footer';
 $data['_configuration']['templates'][2] = 'sidebar-right';
+$data['_configuration']['templates'][3] = 'page-footer';
+$data['_configuration']['templates'][4] = 'html-footer';
 
 // Pager configuration
 array_drill_set('pager.itemsperpage', 10, $data['_configuration']);

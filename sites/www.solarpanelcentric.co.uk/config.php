@@ -1,8 +1,12 @@
 <?php
-$data['_configuration']['db']['server']    = 'db416314117.db.1and1.com'; 
-$data['_configuration']['db']['username']  = 'dbo416314117'; 
-$data['_configuration']['db']['password']  = 'spider20';
-$data['_configuration']['db']['schema']    = 'db416314117';
+if (!strstr($_SERVER['HTTP_HOST'],'dev.')){
+    $data['_configuration']['db']['server']    = 'db416314117.db.1and1.com'; 
+    $data['_configuration']['db']['username']  = 'dbo416314117'; 
+    $data['_configuration']['db']['password']  = 'spider20';
+    $data['_configuration']['db']['schema']    = 'db416314117';
+} else {
+    $data['_configuration']['db']['schema']    = 'centric_solarpanel';
+}
 
 array_drill_set('_configuration.site.name','SolarPanel<span class="centric">Centric</span>',$data);
 array_drill_set('_configuration.site.strapline','Bringing trade price solar panels to UK consumers',$data);

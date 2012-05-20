@@ -50,18 +50,10 @@ ksort($data['templates']);
  * Render the page
  */
 $return = '';
-$return .= render_template($dir_template . 'html-header.html',$data);
-$return .= render_template($dir_template . 'page-header.html',$data);
-// $return .= render_template($dir_template . 'sidebar-left.html',$data);
-// $return .= render_template($dir_template . 'content-header.html',$data);
+
 foreach($data['templates'] as $templateID => $templatefile){
     $return .= render_template($dir_template . $templatefile . '.html', $data);
 }
-// $return .= render_template($dir_template . 'content.html',$data);
-// $return .= render_template($dir_template . 'content-footer.html',$data);
-// $return .= render_template($dir_template . 'sidebar-right.html',$data);
-$return .= render_template($dir_template . 'page-footer.html',$data);
-$return .= render_template($dir_template . 'html-footer.html',$data);
 
 print $return;
 
