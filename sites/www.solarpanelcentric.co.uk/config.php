@@ -1,10 +1,15 @@
 <?php
-$data['_configuration']['db']['schema']    = 'centric_solarpanel';
+$data['_configuration']['db']['server']    = 'db416314117.db.1and1.com'; 
+$data['_configuration']['db']['username']  = 'dbo416314117'; 
+$data['_configuration']['db']['password']  = 'spider20';
+$data['_configuration']['db']['schema']    = 'db416314117';
 
 array_drill_set('_configuration.site.name','SolarPanel<span class="centric">Centric</span>',$data);
 array_drill_set('_configuration.site.strapline','Bringing trade price solar panels to UK consumers',$data);
 
 array_drill_set('seo.title','solarpanelcentric',$data);
+array_drill_set('seo.google.analytics.account','UA-31872896-1',$data);
+array_drill_set('seo.google.webmastertools.account','fxi3B2YNo2XXO1-SMgTa1_Jt0vs7BkG9VZoBHtgYKoE',$data);
 
 array_drill_set('_configuration.about.welcome','
 Solar Panel Centric is a brand new website dedicated to bringing solar panels to UK consumers at trade prices.

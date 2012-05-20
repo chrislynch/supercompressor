@@ -54,6 +54,7 @@ array_drill_set('seo.keywords','SEO Keywords',$data);
     
 array_drill_set('seo.copyright','eCommerceCentric Ltd. http://www.ecommercecentric.co.uk',$data);
 array_drill_set('seo.google.analytics.account','',$data);
+array_drill_set('seo.google.webmastertools.account','',$data);
 
 /*
  * =============================================================================
