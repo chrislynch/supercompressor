@@ -170,19 +170,24 @@ function url_action($url,&$data){
     // Turn a URL into an action.
     // Provide access to $data just in case.
     
-    // Try to find the URL as a clean URL in the index
-    $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';
-    $urlData = mysql_query($urlSQL);
-    if (mysql_num_rows($urlData) == 1){
-        // We have a single item match
-        while ($urlItem = mysql_fetch_assoc($urlData)){
-            data_load($urlItem['ID']);
-        }
-        // Return the action that we are going to run.
-        return 'item';
+    // Check to see if this is a request for an XML file
+    if (strstr(strtolower($url),'.xml')){
+        return 'xml';
     } else {
-        // For now, assume that *anything else* is a search
-        return 'search';
+        // Try to find the URL as a clean URL in the index
+        $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';
+        $urlData = mysql_query($urlSQL);
+        if (mysql_num_rows($urlData) == 1){
+            // We have a single item match
+            while ($urlItem = mysql_fetch_assoc($urlData)){
+                data_load($urlItem['ID']);
+            }
+            // Return the action that we are going to run.
+            return 'item';
+        } else {
+            // For now, assume that *anything else* is a search
+            return 'search';
+        }
     }
 }
 
