@@ -152,8 +152,8 @@ h2 {
 }
 
 #sidebar-right {
-    /* Need to make this slighly smaller than a span-5 to take into account borders in other places */
-   width: 189px;
+    /* Need to make this slighly smaller than a span-4 to take into account borders in other places */
+   width: 149px;
    float: right;
 }
 

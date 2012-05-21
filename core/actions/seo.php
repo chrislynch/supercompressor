@@ -8,6 +8,7 @@ function action_seo_go(&$data){
         foreach($data['_content'] as $contentItem){
             array_drill_set('seo.title',@$contentItem['Title'],$data);
             array_drill_set('seo.description',@$contentItem['Teaser'],$data);
+            array_drill_set('seo.canonical','http://' . $data['_configuration']['site']['domain'] . '/' . @$contentItem['SEO']['Canonical'],$data);
         }
     } else {
         
