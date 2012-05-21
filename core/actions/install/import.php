@@ -26,11 +26,12 @@ function action_install_import_go(&$data){
     $fields = fgetcsv($csvfile);
     $i = 1;
     $importedrowcount = 0;
-    while($csvrecord = fgetcsv($csvfile)){
+    while($csvrecord = fgetcsv($csvfile,0)){
         $record = array();
         for ($index = 0; $index < sizeof($fields); $index++) {
             array_drill_set($fields[$index], $csvrecord[$index], $record);
         }
+        // print_r($record);
         data_save($record);
         $importedrowcount ++;
         $importPC = round(($importedrowcount / $rowcount) * 100,2);

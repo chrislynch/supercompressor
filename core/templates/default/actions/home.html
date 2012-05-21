@@ -1,10 +1,16 @@
 <div id="home" class="span-16 last">
-    <h1>Welcome to @@data._configuration.site.name@@</h1>
-    @@data._configuration.about.welcome?markdown=true@@
+    <div class="span-16 last">
+        <h1>Welcome to @@data._configuration.site.name@@</h1>
+        @@data._configuration.about.welcome?markdown=true@@
+    </div>
     
-    <h2>On Sale Now</h2>
-    @@loop._content.home?template=items/product-home.html&grid=4@@
+    <div class="span-16 last">
+        <h2>On Sale Now</h2>
+        @@loop._content.home?template=items/product-home.html&grid=4@@
+    </div>
     
-    <h2>About @@data._configuration.site.name@@</h2>
-    @@data._configuration.about.long?markdown=true&keywordify=true@@
+    <div class="span-16 last">
+        <h2>About @@data._configuration.site.name@@</h2>
+        @@data._configuration.about.long?markdown=true&keywordify=true@@
+    </div>
 </div>

@@ -117,11 +117,10 @@ function data_save($dataitem){
                         URL = "' . $dataitem['URL'] . '",
                         Status = ' . $dataitem['Status'] . '
                  ON DUPLICATE KEY UPDATE
-                        ID = ' . $dataitem['ID'] . ',
                         Type = "' . $dataitem['Type'] . '",
                         URL = "' . $dataitem['URL'] . '",
                         Status = ' . $dataitem['Status'];
-    
+    // print_r($SQL);
     mysql_query($SQL,$db);
     
     // Now delete all items from the sc_data table
@@ -149,10 +148,12 @@ function data_save_item($ID,$datakey,$datavalue){
                 data_save_item($ID,$datakey . '.' . $datavaluekey,$datavaluevalue);
             }
         } else {
-            mysql_query('INSERT INTO sc_data
+            $SQL = 'INSERT INTO sc_data
                             SET ID = ' . $ID . ',
                                 Field = "' . $datakey . '",
-                                Value = "' . $datavalue . '"',$db);  
+                                Value = "' . $datavalue . '"';
+            // print_r($SQL);
+            mysql_query($SQL,$db);  
         }
     }
 }
