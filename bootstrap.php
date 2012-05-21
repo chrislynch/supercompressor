@@ -9,7 +9,7 @@ include 'core/core.php';
 include 'core/widgets.php';
 include 'lib/phpmarkdownextra/markdown.php';
 
-$dir_template   = 'templates/default/';
+$dir_template   = 'core/templates/default/';
 
 $data = array();
 
