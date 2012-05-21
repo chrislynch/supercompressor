@@ -47,12 +47,19 @@ if (!isset($data['templates'][0])){
 ksort($data['templates']);
 
 /*
- * Render the page
+ * Render the page, using a renderer
  */
 $return = '';
 
-foreach($data['templates'] as $templateID => $templatefile){
-    $return .= render_template($dir_template . $templatefile . '.html', $data);
+foreach($data['_configuration']['renderers'] as $renderer){
+    if (file_exists(array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $action . '.php')){
+        include_once array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $action . '.php';
+    } else {
+        include_once 'core/renderers/' . $renderer . '.php';
+    }
+    
+    $parameters = array( &$data );
+    $return = call_user_func_array('renderer_' . str_ireplace('/', '_', $renderer)  . '_go',$parameters);
 }
 
 print $return;

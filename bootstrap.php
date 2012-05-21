@@ -25,6 +25,8 @@ $data['_configuration']['actions'][-1] = 'cart';
 $data['_configuration']['actions'][1]  = 'seo';
 $data['_configuration']['actions'][2] = 'menu';
 
+$data['_configuration']['renderers'][0] = 'html';
+
 // Templates
 $data['_configuration']['templates'][-4] = 'html-header';
 $data['_configuration']['templates'][-3] = 'page-header';
@@ -65,7 +67,7 @@ array_drill_set('seo.google.webmastertools.account','',$data);
  * ACTION CONFIGURATION
  * =============================================================================
  */
-array_drill_set('_configuration.content.span',15,$data);
+array_drill_set('_configuration.content.span',16,$data);
 
 array_drill_set('_configuration.cart.on',FALSE,$data);
 
