@@ -173,6 +173,8 @@ function url_action($url,&$data){
     // Check to see if this is a request for an XML file
     if (strstr(strtolower($url),'.xml')){
         return 'xml';
+    } else if (strstr(strtolower($url),'.txt')){
+        return 'txt';
     } else {
         // Try to find the URL as a clean URL in the index
         $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';

@@ -6,7 +6,7 @@ function renderer_direct_go(&$data){
      */
     $return = '';
     foreach($data['_content'] as $ID => $content){
-        $return .= print_r($content);
+        $return .= print_r($content,TRUE);
     }
     return $return;
 }
