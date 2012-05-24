@@ -60,9 +60,11 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 		
-		<script type="text/javascript">
+                <script type="text/javascript">
                     var _gaq = _gaq || [];
                     _gaq.push(['_setAccount', '@@data.seo.google.analytics.account@@']);
+                    _gaq.push(['_setDomainName', '@@data._configuration.site.domain@@']);
+                    _gaq.push(['_setAllowLinker', true]);
                     _gaq.push(['_trackPageview']);
 
                     (function() {

@@ -14,12 +14,16 @@ function action_xml_go(&$data){
         case 'sitemap.xml':
             action_xml_sitemap($data);
             break;
+        case 'googlemerchant.xml':
+        case 'googlemerchants.xml':
+            action_xml_googlemerchant($data);
+            break;
     }
     
     
 }
 
-function action_xml_sitemap($data){
+function action_xml_sitemap(&$data){
     /*
      * Return a sitemap according to the XML Sitemap schema (http://www.sitemaps.org/protocol.html)
      */
@@ -40,4 +44,39 @@ function action_xml_sitemap($data){
     
 }
 
+function action_xml_googlemerchant(&$data){
+    print '<?xml version="1.0"?> 
+            <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"> 
+            <channel>
+            <title>University of Oxford Shop | Oxford Clothing, Gifts and Souvenirs from the University of Oxford</title> 
+            <link>http://www.oushop.com</link>
+            <description></description>';
+
+    $products = mysql_query('SELECT ID FROM sc_index WHERE Type = "Product" AND Status = 1');
+    while($product = mysql_fetch_array($products)){
+        $product = data_load($product[0]);
+        print '<item>';
+        print _action_xml_xmlelement('g:id',$product['ID']);
+        print _action_xml_xmlelement('title',$product['Title']);
+        print _action_xml_xmlelement('description',$product['Body']);
+        print _action_xml_xmlelement('g:google_product_category',array_drill_get('Google.Shopping.Category',$product));
+        print _action_xml_xmlelement('g:product_type',array_drill_get('Category.Product',$product));
+        print _action_xml_xmlelement('link',$data['_configuration']['site']['domain'] . '/' .  $product['URL']);
+        print _action_xml_xmlelement('g:image_link',$data['_configuration']['site']['domain'] .  $product['Image']);
+        print _action_xml_xmlelement('g:condition',array_drill_get('Google.Shopping.Condition',$product,'new'));
+        print '<g:availability>in stock</g:availability>';
+        print _action_xml_xmlelement('g:price',array_drill_get('Product.SellPrice',$product) . 'GBP');
+        print _action_xml_xmlelement('g:brand',array_drill_get('Category.Brand',$product));
+        print _action_xml_xmlelement('g:mpn',array_drill_get('Product.SKU',$product));
+        print '</item>';
+    }
+    
+    print '</channel> 
+        </rss>';
+
+}
+    
+function _action_xml_xmlelement($elementName,$elementData){
+    return '<' . $elementName . '>' . urlencode(strip_tags($elementData)) . '</' . $elementName . '>';
+}
 ?>
