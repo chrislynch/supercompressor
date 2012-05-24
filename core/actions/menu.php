@@ -10,6 +10,7 @@ function action_menu_go(&$data){
     $data['menu'] = array();
     $data['menu']['browse'] = array();
     $data['menu']['filter'] = array();
+    $data['menu']['bestsellers'] = array();
     
     $menus = array();
     $menusData = mysql_query('SELECT SUBSTRING_INDEX(Field,".",-1), Field FROM sc_data WHERE Field LIKE "Category.%" GROUP BY Field');
@@ -67,6 +68,25 @@ function action_menu_go(&$data){
             }
         }
     }
+    
+    // Other menus that are always around
+    // Build code for regular menus
+        
+    $menusSQL = 'SELECT i.ID,i.URL as URL,n.Value as Name
+                    FROM   sc_data d
+                    JOIN   sc_index i ON i.ID = d.ID
+                    JOIN   sc_data n ON n.ID = i.ID AND n.Field = "Title"
+                    WHERE  d.field = "Product.SellPrice"
+                    ORDER BY d.Value DESC
+                    LIMIT 10';
+    $menusData = mysql_query($menusSQL,$db);
+
+    while($menuItem = mysql_fetch_assoc($menusData)){
+        $data['menu']['bestsellers'][$menuItem['ID']] = array('link'=>'/' . $menuItem['URL'],
+                                                              'text'=> $menuItem['Name']);
+    }
+    shuffle($data['menu']['bestsellers']);
+    
 }
 
 ?>

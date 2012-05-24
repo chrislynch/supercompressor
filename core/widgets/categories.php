@@ -27,6 +27,9 @@ function widget_categories_go($widget_field,$widget_params,&$data){
         }
     }
     
+    $return .= '<h3>Best Sellers</h3>';
+    $return .= '<ul>@@list.menu.bestsellers?li-class=menu-item@@</ul>';
+        
     return $return;
 }
 

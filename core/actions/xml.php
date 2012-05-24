@@ -71,7 +71,7 @@ function action_xml_googlemerchant(&$data){
         print '<g:shipping>
                 <g:country>GB</g:country>
                 <g:service>Standard Shipping</g:service>
-                <g:price>' . array_drill_get('Product.ShippingPrice',$product, 0.00) . '</g:price>
+                <g:price>' . array_drill_get('Product.ShippingPrice',$product, '0.00') . '</g:price>
                </g:shipping>';
         
         // Unique Identifiers

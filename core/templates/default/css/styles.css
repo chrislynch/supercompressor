@@ -381,3 +381,13 @@ h2 {
 #page-footer li{
     
 }
+
+/* Stock classes */
+
+.instock {
+    color: green;
+}
+
+.outofstock {
+    color: brown;
+}

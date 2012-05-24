@@ -110,6 +110,11 @@ function render_widget($widget,$data, $recursion_depth = 0){
             $return = Markdown($return);
         }
     }
+    if(isset($widget_params['asCSSclass'])){
+        if (strlen($return) > 0){
+            $return = strtolower(str_ireplace(' ', '', $return));
+        }
+    }
     if(isset($widget_params['keywordify'])){
         // TODO: Run the text through a keyword filter
         if (strlen($return) > 0){
