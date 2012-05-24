@@ -100,6 +100,8 @@ function data_load($ID, &$todata = FALSE){
         call_user_func_array('datatype_' . str_ireplace('/', '_', $datarecord['Type'])  . '_load',$parameters);
     }
     
+    return $datarecord;
+    
 }
 
 function data_save($dataitem){
