@@ -77,6 +77,6 @@ function action_xml_googlemerchant(&$data){
 }
     
 function _action_xml_xmlelement($elementName,$elementData){
-    return '<' . $elementName . '>' . urlencode(strip_tags($elementData)) . '</' . $elementName . '>';
+    return '<' . $elementName . '>' . strip_tags($elementData) . '</' . $elementName . '>';
 }
 ?>
