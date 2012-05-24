@@ -14,6 +14,10 @@ function action_xml_go(&$data){
         case 'sitemap.xml':
             action_xml_sitemap($data);
             break;
+        case 'googlemerchant.xml':
+        case 'googlemerchants.xml':
+            action_xml_googlemerchant($data);
+            break;
     }
     
     
