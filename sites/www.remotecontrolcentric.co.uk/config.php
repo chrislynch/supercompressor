@@ -10,7 +10,7 @@ array_drill_set('_configuration.site.strapline','Replacing the UK\'s lost and da
 
 array_drill_set('seo.title','Remote Control Centric',$data);
 array_drill_set('seo.google.analytics.account','',$data);
-array_drill_set('seo.google.webmastertools.account','',$data);
+array_drill_set('seo.google.webmastertools.account','Shk8GVA_8ltC7meV9luOBRbh_19ZfeWgNVdl6H2q6_w',$data);
 
 
 array_drill_set('_configuration.about.welcome','
