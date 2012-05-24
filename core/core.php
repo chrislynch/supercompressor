@@ -25,7 +25,7 @@ function render_template($template,$data){
     return $template;
 }
 
-function array_drill_get($array_path,$data){
+function array_drill_get($array_path,$data,$default = ''){
     /*
      * Drill down through our array until we find the item we want or run out of array
      */
@@ -37,13 +37,13 @@ function array_drill_get($array_path,$data){
         if (isset($data[$array_item])){
             return array_drill_get($array_path,$data[$array_item]);
         } else {
-            return '';
+            return $default;
         }
     } else {
         if (isset($data[$array_path])){
             return $data[$array_path];
         } else {
-            return '';
+            return $default;
         }
     }
 }
