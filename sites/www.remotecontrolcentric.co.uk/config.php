@@ -1,9 +1,8 @@
 <?php
 if (!strstr($_SERVER['HTTP_HOST'],'dev.')){
     $data['_configuration']['db']['password']  = 'spider20';
-} else {
-    $data['_configuration']['db']['schema']    = 'centric_remotecontrol';
-}
+} 
+$data['_configuration']['db']['schema']    = 'centric_remotecontrol';
 
 array_drill_set('_configuration.site.name','RemoteControl<span class="centric">Centric</span>',$data);
 array_drill_set('_configuration.site.strapline','Replacing the UK\'s lost and damaged remote controls',$data);
