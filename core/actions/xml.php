@@ -29,7 +29,7 @@ function action_xml_sitemap($data){
     $urls = mysql_query('SELECT URL FROM sc_index WHERE Status = 1');
     while($url = mysql_fetch_array($urls)){
         print '<url>
-                      <loc>' . $data['_configuration']['site']['domain'] . $url[0] . '</loc>
+                      <loc>http://' . $data['_configuration']['site']['domain'] . $url[0] . '</loc>
                       <lastmod>2005-01-01</lastmod>
                       <changefreq>daily</changefreq>
                       <priority>0.5</priority>
