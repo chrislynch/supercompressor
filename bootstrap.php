@@ -69,7 +69,7 @@ array_drill_set('seo.google.webmastertools.account','',$data);
  */
 array_drill_set('_configuration.content.span',16,$data);
 
-array_drill_set('_configuration.cart.on',FALSE,$data);
+array_drill_set('_configuration.cart.on',TRUE,$data);
 
 /*
  * =============================================================================
