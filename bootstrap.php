@@ -9,8 +9,6 @@ include 'core/core.php';
 include 'core/widgets.php';
 include 'lib/phpmarkdownextra/markdown.php';
 
-$dir_template   = 'core/templates/default/';
-
 $data = array();
 
 $data['_configuration'] = array();
@@ -52,6 +50,9 @@ array_drill_set('_configuration.categories.brand.menu','Brands',$data);
 // Content & Templates Starters
 $data['_content'] = array();
 $data['templates'] = $data['_configuration']['templates'];
+
+$dir_template   = 'core/templates/default/';
+include $dir_template . 'config.php';
 
 // SEO Starter
 array_drill_set('seo.title','centric',$data);

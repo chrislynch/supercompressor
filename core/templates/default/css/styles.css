@@ -1,4 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Belleza");
+@@data._configuration.css.imports@@
 
 body { 
     display: block;
@@ -8,14 +8,14 @@ body {
 }
 
 h1 {
-    font-family: 'Belleza', sans-serif;
-    color: navy;
+    font-family: @@data._configuration.css.headings.font@@;
+    color: @@data._configuration.css.headings.colour@@;
     font-size: 24pt;
 }
 
 h2 {
-    color: navy;
-    font-family: 'Belleza', sans-serif;
+    font-family: @@data._configuration.css.headings.font@@;
+    color: @@data._configuration.css.headings.colour@@;
     font-size: 16pt;    
 }
 
@@ -35,10 +35,10 @@ h2 {
 }
 
 #logo {
-    font-family: 'Belleza', sans-serif;
+    font-family: @@data._configuration.css.headings.font@@;
+    color: @@data._configuration.css.headings.colour@@;
     font-size: 28pt;
-    font-weight: bold;
-    color: navy;
+    font-weight: bold;    
 }
 
 #logo a {
