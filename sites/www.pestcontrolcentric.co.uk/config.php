@@ -18,4 +18,8 @@ array_drill_set('_configuration.about.welcome','',$data);
 array_drill_set('_configuration.about.short','',$data);
 
 array_drill_set('_configuration.about.long','',$data);
+
+$data['_configuration']['css']['headings']['colour'] = '#990000';
+$data['_configuration']['css']['primarymenu']['backgroundcolour'] = '#1F7B67';
+
 ?>

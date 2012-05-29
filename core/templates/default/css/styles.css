@@ -47,12 +47,12 @@ h2 {
 }
 
 #logo .centric {
-    color: gray;
+    color: @@data._configuration.css.accents.colour@@;
 }
 
 #slogan {
     font-size: 10pt;
-    color: gray;
+    color: @@data._configuration.css.accents.colour@@;
 }
 
 #primary-menu {
@@ -60,11 +60,12 @@ h2 {
     padding-bottom: 5px;
     overflow: hidden;
     
+    background: @@data._configuration.css.primarymenu.backgroundcolour@@;
+    
     border-radius: 10px 10px 10px 10px; 
     -moz-border-radius: 10px 10px 10px 10px; 
     -webkit-border-radius: 10px 10px 10px 10px; 
     border: 1px solid goldenrod;
-    background: gold;
     display: inline;
     padding-top: 5px;
     padding-bottom: 5px;

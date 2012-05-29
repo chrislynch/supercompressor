@@ -1,31 +1,13 @@
-"ID","Type","URL","Status","Title","Section","Category.Product","Category.Brand","Body","Teaser","Image","Product.SKU","Product.ListPrice","Product.SellPrice","Product.Stock.Value","Product.Stock.Message"
-1,"Product","AKB72914274",1,"LG Remote Control AKB72914274","LG","Remote Controls","LG","This is a **genuine LG replacement remote control** for your LG television set.This is a **genuine LG replacement remote control** for your LG television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine LG replacement remote control** for your LG television set.",,"AKB72914274",12.99,8.99,1,"In Stock"
-2,"Product","BN59-00901A",1,"Samsung Remote Control BN59-00901A","Samsung","Remote Controls","Samsung","This is a **genuine Samsung replacement remote control** for your Samsung television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine Samsung replacement remote control** for your Samsung television set.",,"BN59-00901A",12.99,8.99,1,"In Stock"
-3,"Product","AKB72915207",1,"LG Remote Control AKB72915207","LG","Remote Controls","LG","This is a **genuine LG replacement remote control** for your LG television set.This is a **genuine LG replacement remote control** for your LG television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine LG replacement remote control** for your LG television set.",,"AKB72915207",15,8.99,1,"In Stock"
-4,"Product","BN59-00685A",1,"Samsung Remote Control BN59-00901A","Samsung","Remote Controls","Samsung","This is a **genuine Samsung replacement remote control** for your Samsung television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine Samsung replacement remote control** for your Samsung television set.",,"BN59-00685A",8,6.99,1,"In Stock"
-5,"Product","AKB69680438",1,"LG Remote Control AKB69680438","LG","Remote Controls","LG","This is a **genuine LG replacement remote control** for your LG television set.This is a **genuine LG replacement remote control** for your LG television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine LG replacement remote control** for your LG television set.",,"AKB69680438",10.99,8.99,1,"In Stock"
-6,"Product","AKB33871410",1,"LG Remote Control AKB72915207","LG","Remote Controls","LG","This is a **genuine LG replacement remote control** for your LG television set.This is a **genuine LG replacement remote control** for your LG television set.
-
-No set-up is required, simply add batteries and you are ready to go.
-
-All of our replacement remote controls are QC tested.","This is a **genuine LG replacement remote control** for your LG television set.",,"AKB33871410",14,8.99,1,"In Stock"
+"ID","Type","URL","Status","Title","Section","Category.Product","Category.Brand","Body","Teaser","Image","Product.SKU","Product.CostPrice","Product.ListPrice","Product.SellPrice","Product.Saving","Product.SavingPC","Product.Margin","Product.Stock.Value","Product.Stock.Message"
+1,"Product",,1,"Trip -Trap Humane Mouse Trap (Box of Six)","Mouse Traps","Mice","Procter",,,,"PSTT",11.28,27,17.28,9.72,36,6,1,"In Stock"
+2,"Product",,1,"Pest Repeller for single large room (1000 sq ft)","Pest Control","Insects","Procter",,,,"PSRSR",6.36,15.99,12.36,3.63,22.7016885553,6,1,"In Stock"
+3,"Product",,1,"Pest Repeller Triple Pack for Large Room (3 X 1000 sq ft)","Pest Control","Insects","Procter",,,,"PSRSR3",12.86,32.99,18.86,14.13,42.8311609579,6,1,"In Stock"
+4,"Product",,1,"Pest Repeller for Whole House (2,500 sq ft)","Pest Control","Insects","Procter",,,,"PSRWH",19.37,49.99,25.37,24.62,49.24984997,6,1,"In Stock"
+5,"Product",,1,"Pest Repeller for Whole Large House (4000 sq ft)","Pest Control","Insects","Procter",,,,"PSRPRO",30.19,69.99,36.19,33.8,48.2926132305,6,1,"In Stock"
+6,"Product",,1,"Electronic Mole Repeller","Garden Pests","Moles","Procter",,,,"PS9000",10.73,27.5,16.73,10.77,39.1636363636,6,1,"In Stock"
+7,"Product",,1,"Solar Powered Mole Repeller","Garden Pests","Moles","Procter",,,,"PS7500S",10.73,27.5,16.73,10.77,39.1636363636,6,1,"In Stock"
+8,"Product",,1,"Prikka Strip – 45mm x 500mm strips (Pack of 8)","Garden Pests","Cats","Procter",,,,"PSPS8",8.1,19.99,14.1,5.89,29.4647323662,6,1,"In Stock"
+9,"Product",,1,"Cat Repeller Rods (Pack of 4)","Garden Pests","Cats","Procter",,,,"PSCAT",8.56,19.99,14.56,5.43,27.1635817909,6,1,"In Stock"
+10,"Product",,1,"Ultrasonic Cat Repeller","Garden Pests","Cats","Procter",,,,"PS3002",12.86,29.99,18.86,11.13,37.1123707903,6,1,"In Stock"
+11,"Product",,1,"Ultrasonic Garden Pest Repeller","Garden Pests","Insects","Procter",,,,"PS3010",19.37,49.99,25.37,24.62,49.24984997,6,1,"In Stock"
+12,"Product",,1,"Spider and Bug Vacuum","Garden Pests","Insects","Procter",,,,"PSSBV",4.77,11.99,10.77,1.22,10.175145955,6,1,"In Stock"

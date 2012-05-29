@@ -110,6 +110,11 @@ function data_save($dataitem){
      */
     global $db;
     
+    // We must have a unique URL. If the URL value is blank, URLify the title
+    if (strlen($dataitem['URL']) == 0){
+        $dataitem['URL'] = url_ify($dataitem['Title']);
+    }
+    
     // Place the item's core into the index.    
     $SQL = 'INSERT INTO sc_index 
                     SET ID = ' . $dataitem['ID'] . ',
