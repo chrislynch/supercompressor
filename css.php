@@ -5,6 +5,7 @@ if (isset($_GET['css'])){
     // This enables us to have CSS variables for colour and font.
     header('Content-type: text/css');
     include 'bootstrap.php';
+    print array_drill_get('_configuration.css.imports',$data);
     print render_template($_GET['css'], $data);
     
 }
