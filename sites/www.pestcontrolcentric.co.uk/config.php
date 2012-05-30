@@ -20,7 +20,7 @@ array_drill_set('_configuration.about.short','',$data);
 array_drill_set('_configuration.about.long','',$data);
 
 $data['_configuration']['css']['headings']['colour'] = '#990000';
-$data['_configuration']['css']['primarymenu']['backgroundcolour'] = '#1F7B67';
+$data['_configuration']['css']['primarymenu']['backgroundcolour'] = '#31B404';
 $data['_configuration']['css']['primarymenu']['itemcolour'] = 'white';
 $data['_configuration']['css']['primarymenu']['itembordercolour'] = 'white';
 

@@ -15,7 +15,8 @@ function datatype_product_load(&$data){
     // We should have a default image
     $image = array_drill_get('Image',$data);
     if (strlen($image) == 0){
-        array_drill_set('Image','/core/templates/default/images/error.jpg',$data);
+        // array_drill_set('Image','/core/templates/default/images/error.jpg',$data);
+        array_drill_set('Image','/sites/www.pestcontrolcentric.co.uk/images/' . array_drill_get('Product.SKU',$data) . '.jpg',$data);
     }
 }
 
