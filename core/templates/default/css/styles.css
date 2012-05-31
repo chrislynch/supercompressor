@@ -1,20 +1,21 @@
+@import url("http://fonts.googleapis.com/css?family=Belleza");
 
 body { 
     display: block;
     font-family: sans-serif;
     font-size: 8pt;
-    background-image: url("core/templates/default/css/images/background2.jpg");
+    /* background-image: url("core/templates/default/css/images/background2.jpg"); */
 }
 
 h1 {
     font-size: 24pt;
-    color: @@data._configuration.css.headings.colour@@;
-    font-family: @@data._configuration.css.headings.font@@;
+    color: #424242;
+    font-family: 'Belleza', sans-serif;
 }
 
 h2 {
-    font-family: @@data._configuration.css.headings.font@@;
-    color: @@data._configuration.css.headings.colour@@;
+    font-family: 'Belleza', sans-serif;
+    color: navy;
     font-size: 16pt;    
 }
 
@@ -34,8 +35,8 @@ h2 {
 }
 
 #logo {
-    font-family: @@data._configuration.css.headings.font@@;
-    color: @@data._configuration.css.headings.colour@@;
+    font-family: 'Belleza', sans-serif;
+    color: #424242;
     font-size: 28pt;
     font-weight: bold;    
 }
@@ -45,13 +46,9 @@ h2 {
     color: inherit;
 }
 
-#logo .centric {
-    color: @@data._configuration.css.accents.colour@@;
-}
-
 #slogan {
     font-size: 10pt;
-    color: @@data._configuration.css.accents.colour@@;
+    color: gray;
 }
 
 #primary-menu {
@@ -59,13 +56,12 @@ h2 {
     padding-bottom: 5px;
     overflow: hidden;
     
-    background: @@data._configuration.css.primarymenu.backgroundcolour@@;
-    color: @@data._configuration.css.primarymenu.itemcolour@@;
+    background: gold;
     
     border-radius: 10px 10px 10px 10px; 
     -moz-border-radius: 10px 10px 10px 10px; 
     -webkit-border-radius: 10px 10px 10px 10px; 
-    border: 1px solid @@data._configuration.css.primarymenu.bordercolour@@;
+    border: goldenrod;
     display: inline;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -98,10 +94,10 @@ h2 {
 }
 
 #primary-menu #sections ul li {
-    color: @@data._configuration.css.primarymenu.itemcolour@@;
+    color: blue;
     display: inline;
     border-right-style: solid;
-    border-right-color: @@data._configuration.css.primarymenu.itembordercolour@@;
+    border-right-color: gainsboro;
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 2px;
@@ -111,19 +107,19 @@ h2 {
 }
 
 #primary-menu #sections ul li a{
-    color: @@data._configuration.css.primarymenu.itemcolour@@;
+    color: blue;
 }
 
 #sidebar-left {
     /* width: 160px; */
     margin-right: 10px;
     border-right-style: solid;
-    border-right-color: @@data._configuration.css.grids.colour@@;
+    border-right-color: gainsboro;
     border-right-width: 1px;
 }
 
 #sidebar-left h3 {
-    color: @@data._configuration.css.headings.colour@@;
+    color: navy;
     margin-top: 2px;
     margin-bottom: 5px;
 }
@@ -140,7 +136,7 @@ h2 {
     margin-right: 10px;
     border-bottom-style: dotted;
     border-bottom-width: 1px;
-    border-bottom-color: @@data._configuration.css.grids.colour@@;
+    border-bottom-color: gainsboro;
 }
 
 #sidebar-left li a{
@@ -196,7 +192,7 @@ h2 {
 
     border-style: solid;
     border-width: 2px;
-    border-color: @@data._configuration.css.grids.colour@@;
+    border-color: gainsboro;
 
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -259,7 +255,7 @@ h2 {
 
 #home h2{
     border-bottom: solid;
-    border-bottom-color: @@data._configuration.css.grids.colour@@;
+    border-bottom-color: navy;
 }
 
 .product-home{
@@ -268,7 +264,7 @@ h2 {
 
     border-style: solid;
     border-width: 2px;
-    border-color: @@data._configuration.css.grids.colour@@;
+    border-color: gainsboro;
 
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -317,17 +313,17 @@ h2 {
 
 .product {
     border-right-style: solid;
-    border-right-color: @@data._configuration.css.grids.colour@@;
+    border-right-color: gainsboro;
     border-right-width: 1px;
 }
 
 .product h1 {
-    color: @@data._configuration.css.headings.colour@@;
+    color: navy;
     margin-top: 10px;
 }
 
 .product h2 {
-    color: @@data._configuration.css.headings.colour@@;
+    color: navy;
 }
 
 .product .product-image-container {

@@ -52,7 +52,6 @@ $data['_content'] = array();
 $data['templates'] = $data['_configuration']['templates'];
 
 $dir_template   = 'core/templates/default/';
-include $dir_template . 'config.php';
 
 // SEO Starter
 array_drill_set('seo.title','centric',$data);
