@@ -27,6 +27,7 @@ function action_menu_go(&$data){
         
         $menusSQL = 'SELECT value as category,count(value) as members
                      FROM   sc_data 
+                     JOIN   sc_index ON sc_index.ID = sc_data.ID and sc_index.Type = "Product"
                      WHERE  field = "' . $menuField . '"';
         $menusSQL .= 'GROUP BY value ' ;
         if ($menuKey == 'Sections') {
@@ -54,8 +55,9 @@ function action_menu_go(&$data){
             
             $menusSQL = 'SELECT value as category,count(value) as members
                          FROM   sc_data 
+                         JOIN   sc_index ON sc_index.ID = sc_data.ID and sc_index.Type = "Product"
                          WHERE  field = "' . $menuField . '"';
-            $menusSQL .= ' AND ID IN (' . $IDs . ') ';
+            $menusSQL .= ' AND sc_data.ID IN (' . $IDs . ') ';
             $menusSQL .= ' GROUP BY value ' ;
             $menusSQL .= ' ORDER BY value';
             
@@ -86,6 +88,9 @@ function action_menu_go(&$data){
                                                               'text'=> $menuItem['Name']);
     }
     shuffle($data['menu']['bestsellers']);
+    
+    // Build the "Help and Advice" menu
+    
     
 }
 

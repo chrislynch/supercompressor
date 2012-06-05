@@ -159,11 +159,38 @@ h2 {
    float: right;
 }
 
-#twitter {
+#sidebar-right #addthis {
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: navy;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 140px;
+}
+
+#sidebar-right #addthis h3 {
+    background-color: navy;
+    color: white;
+    
+    margin-left: -5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    height: 20px;
+    
+    font-size: 10pt;
+    margin-top: 0px;
+}
+
+#sidebar-right #twitter {
     padding-left: 5px;
 }
 
-#facebook {
+#sidebar-right #facebook {
     padding-left: 5px;
 }
 
