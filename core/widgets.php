@@ -63,9 +63,17 @@ function render_widget($widget,$data, $recursion_depth = 0){
                 if ($listlength == 0){ break;}
             }
             break;
+        case 'snippet':
+            $snippetfile = find_include('content/snippets/' . $widget_field);
+            if (file_exists($snippetfile)){
+                $return = file_get_contents($snippetfile);
+            } else {
+                $return = 'Missing snippet ' . $widget_field;
+            }
+            break;
         default:
             if (file_exists('core/widgets/' . $widget_type . '.php')){
-                include_once('core/widgets/' . $widget_type . '.php');
+                include_once(find_include('widgets/' . $widget_type . '.php'));
                 $parameters = array( $widget_field,$widget_params,&$data );
                 $return = call_user_func_array('widget_' . $widget_type  . '_go',$parameters);
             } else {

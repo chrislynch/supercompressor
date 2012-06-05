@@ -23,12 +23,14 @@ if (isset($_REQUEST['action'])){
 ksort($data['_configuration']['actions']);
 
 foreach($data['_configuration']['actions'] as $action){
+    include_once find_include('actions/' . $action . '.php');
+    /*
     if (file_exists(array_drill_get('_configuration.site.domaindir',$data) . 'actions/' . $action . '.php')){
         include_once array_drill_get('_configuration.site.domaindir',$data) . 'actions/' . $action . '.php';
     } else {
         include_once 'core/actions/' . $action . '.php';
     }
-    
+    */
     $parameters = array( &$data );
     call_user_func_array('action_' . str_ireplace('/', '_', $action)  . '_go',$parameters);
 }
@@ -52,12 +54,14 @@ ksort($data['templates']);
 $return = '';
 
 foreach($data['_configuration']['renderers'] as $renderer){
-    if (file_exists(array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $action . '.php')){
-        include_once array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $action . '.php';
+    include_once find_include('renderers/' . $renderer . '.php');
+    /*
+    if (file_exists(array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $renderer . '.php')){
+        include_once array_drill_get('_configuration.site.domaindir',$data) . 'renderers/' . $renderer . '.php';
     } else {
         include_once 'core/renderers/' . $renderer . '.php';
     }
-    
+    */
     $parameters = array( &$data );
     $return = call_user_func_array('renderer_' . str_ireplace('/', '_', $renderer)  . '_go',$parameters);
 }
