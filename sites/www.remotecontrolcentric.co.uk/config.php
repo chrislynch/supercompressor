@@ -14,10 +14,5 @@ array_drill_set('seo.google.webmastertools.account','Shk8GVA_8ltC7meV9luOBRbh_19
 
 
 array_drill_set('_configuration.about.welcome','
-A lost or broken remote control can make an expensive television absolutely worthless. Have no fear! Remote Control Centric have access to an enormous range of replacement LG remote controls, 
-replacement Samsung remote controls, and more.',$data);
-
-array_drill_set('_configuration.about.short','',$data);
-
-array_drill_set('_configuration.about.long','',$data);
+',$data);
 ?>
