@@ -93,7 +93,7 @@ function data_load($ID, &$todata = FALSE){
         array_drill_set($record['Field'], $record['Value'], $datarecord);
     }
     
-    $datatypeInclude = 'core/datatypes/' . strtolower($datarecord['Type']) . '.php';
+    $datatypeInclude = find_include('datatypes/' . strtolower($datarecord['Type']) . '.php');
     if (file_exists($datatypeInclude)){
         include_once($datatypeInclude);
         $parameters = array( &$datarecord );
@@ -109,6 +109,11 @@ function data_save($dataitem){
      * Save this data item to the database
      */
     global $db;
+    
+    // We must have a unique URL. If the URL value is blank, URLify the title
+    if (strlen($dataitem['URL']) == 0){
+        $dataitem['URL'] = url_ify($dataitem['Title']);
+    }
     
     // Place the item's core into the index.    
     $SQL = 'INSERT INTO sc_index 
@@ -225,5 +230,19 @@ function url_ify($url){
     return $url;
 }
 
+function find_include($findfile){
+    return include_find($findfile);
+}
+
+function include_find($findfile){
+    // Check to see if this file exists in the site specific directory as an override. If not, we load it from core.
+    global $data;
+    $domaindir = array_drill_get('_configuration.site.domaindir',$data,'');
+    if ($domaindir !== '' && file_exists($domaindir . $findfile)){
+        return $domaindir . $findfile;
+    } else {
+        return 'core/' . $findfile;
+    }        
+}
 
 ?>

@@ -22,9 +22,9 @@
         </div>
         
         <div class="teaser span-9 append-1 last">
-            @@content.Teaser@@
+            @@content.Teaser?markdown=true@@
         </div>
-        <div class="span-9 append-1 last">
+        <div class="span-9 append-1 last @@content.Product.Stock.Message?asCSSclass=true@@">
             Stock: @@content.Product.Stock.Message@@
         </div>
     </div>

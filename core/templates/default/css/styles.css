@@ -4,18 +4,18 @@ body {
     display: block;
     font-family: sans-serif;
     font-size: 8pt;
-    background-image: url("images/background.jpg");
+    /* background-image: url("core/templates/default/css/images/background2.jpg"); */
 }
 
 h1 {
-    font-family: 'Belleza', sans-serif;
-    color: navy;
     font-size: 24pt;
+    color: #424242;
+    font-family: 'Belleza', sans-serif;
 }
 
 h2 {
-    color: navy;
     font-family: 'Belleza', sans-serif;
+    color: navy;
     font-size: 16pt;    
 }
 
@@ -36,18 +36,14 @@ h2 {
 
 #logo {
     font-family: 'Belleza', sans-serif;
+    color: #424242;
     font-size: 28pt;
-    font-weight: bold;
-    color: navy;
+    font-weight: bold;    
 }
 
 #logo a {
     text-decoration: none;
     color: inherit;
-}
-
-#logo .centric {
-    color: gray;
 }
 
 #slogan {
@@ -60,11 +56,12 @@ h2 {
     padding-bottom: 5px;
     overflow: hidden;
     
+    background: gold;
+    
     border-radius: 10px 10px 10px 10px; 
     -moz-border-radius: 10px 10px 10px 10px; 
     -webkit-border-radius: 10px 10px 10px 10px; 
-    border: 1px solid goldenrod;
-    background: gold;
+    border: goldenrod;
     display: inline;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -97,15 +94,20 @@ h2 {
 }
 
 #primary-menu #sections ul li {
+    color: blue;
     display: inline;
     border-right-style: solid;
-    border-right-color: goldenrod;
+    border-right-color: gainsboro;
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 2px;
     font-family: 'Belleza', sans-serif;
     font-weight: bold;
     font-size: 12pt;
+}
+
+#primary-menu #sections ul li a{
+    color: blue;
 }
 
 #sidebar-left {
@@ -157,11 +159,38 @@ h2 {
    float: right;
 }
 
-#twitter {
+#sidebar-right #addthis {
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: navy;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 140px;
+}
+
+#sidebar-right #addthis h3 {
+    background-color: navy;
+    color: white;
+    
+    margin-left: -5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    height: 20px;
+    
+    font-size: 10pt;
+    margin-top: 0px;
+}
+
+#sidebar-right #twitter {
     padding-left: 5px;
 }
 
-#facebook {
+#sidebar-right #facebook {
     padding-left: 5px;
 }
 
@@ -253,7 +282,7 @@ h2 {
 
 #home h2{
     border-bottom: solid;
-    border-bottom-color: gainsboro;
+    border-bottom-color: navy;
 }
 
 .product-home{
@@ -380,4 +409,14 @@ h2 {
 
 #page-footer li{
     
+}
+
+/* Stock classes */
+
+.instock {
+    color: green;
+}
+
+.outofstock {
+    color: brown;
 }
