@@ -10,6 +10,9 @@ function widget_categories_go($widget_field,$widget_params,&$data){
     
     switch($widget_field){
         case 2:
+            if(isset($data['menu']['pages'])){
+                $return .= '<ul>@@list.menu.pages?li-class=menu-item@@</ul>';
+            }
             break;
         
         case 1:

@@ -4,11 +4,21 @@ function renderer_html_go(&$data){
     global $dir_template;
     $return = '';
     foreach($data['templates'] as $templateID => $templatefile){
+        
         if (substr($templatefile,0,1) == '/') {
-            $return .= render_template(substr($templatefile,1) . '.html', $data);
+            $templatefile = substr($templatefile,1) . '.html';
         } else {
-            $return .= render_template($dir_template . $templatefile . '.html', $data);
+            $templatefile = $dir_template . $templatefile . '.html';
         }
+        $templatefile = find_include($templatefile);
+        
+        $returnTemplate = render_template($templatefile, $data);
+        
+        if (strstr($templatefile,'/content/')){
+            $returnTemplate = Markdown($returnTemplate);
+        }
+        
+        $return .= $returnTemplate;
     }
     return $return;
 }
