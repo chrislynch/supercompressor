@@ -87,11 +87,34 @@ function action_menu_go(&$data){
         $data['menu']['bestsellers'][$menuItem['ID']] = array('link'=>'/' . $menuItem['URL'],
                                                               'text'=> $menuItem['Name']);
     }
-    shuffle($data['menu']['bestsellers']);
+    // shuffle($data['menu']['bestsellers']);
     
     // Build the "Help and Advice" menu
-    
-    
+    // Use Kirby style numbering on items to understand their order and whether we should display them or not.
+    $scandir = array_drill_get('_configuration.site.domaindir',$data) . 'content/pages';
+    if (file_exists($scandir)){
+        $pages = scandir($scandir);
+        foreach($pages as $page){
+            if (!is_dir($page)){
+                $page = explode('-',$page);
+                if (is_numeric($page[0])){
+                    $page = implode('-',$page);
+                    $pageFile = explode('.',$page);
+                    $pageFile = $pageFile[0];
+
+                    $page = explode('-',$page);
+                    array_shift($page);           
+                    $page = implode('-',$page);
+                    $pageTitle = explode('.',$page);
+                    $pageTitle = $pageTitle[0];
+                    $pageTitle = ucwords(str_ireplace('-',' ',$pageTitle));
+
+                    $data['menu']['pages'][] = array('link' => '?action=page&page=' . $pageFile,
+                                                    'text' => $pageTitle);
+                }
+            }
+        }
+    }   
 }
 
 ?>

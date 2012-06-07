@@ -4,7 +4,7 @@ body {
     display: block;
     font-family: sans-serif;
     font-size: 8pt;
-    /* background-image: url("core/templates/default/css/images/background2.jpg"); */
+    background-image: url("core/templates/default/css/images/background3.jpg");
 }
 
 h1 {
@@ -299,6 +299,10 @@ h2 {
 
     text-align: center;
     height: 350px;
+}
+
+.product-home h3 {
+    height: 55px;
 }
 
 .product-home .teaser {

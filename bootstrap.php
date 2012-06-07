@@ -51,7 +51,7 @@ array_drill_set('_configuration.categories.brand.menu','Brands',$data);
 $data['_content'] = array();
 $data['templates'] = $data['_configuration']['templates'];
 
-$dir_template   = 'core/templates/default/';
+$dir_template   = 'templates/default/';
 
 // SEO Starter
 array_drill_set('seo.title','centric',$data);

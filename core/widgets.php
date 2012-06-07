@@ -50,7 +50,7 @@ function render_widget($widget,$data, $recursion_depth = 0){
 		    if (isset($widget_params['grid'])){
 		        if($loopcount % $widget_params['grid'] == 0) { $loopcontentitem['_islast'] = 'last';}
 		    }
-                    $return .= render_template($dir_template . $widget_params['template'], $loopcontentitem);
+                    $return .= render_template(find_include($dir_template . $widget_params['template']), $loopcontentitem);
                 }
             }
             break;
