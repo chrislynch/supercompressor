@@ -244,33 +244,40 @@ function include_find($findfile){
     }        
 }
 
-function content_scandir($scandir,$action,$limit = -1){
+function content_scandir($scandir,$action,$limit = -1,$offset = 0){
     global $data;
     $return = array();
     $scandir = array_drill_get('_configuration.site.domaindir',$data) . $scandir;
-    if (file_exists($scandir)){
-        $pages = scandir($scandir);
+    
+    $sort = 0; // SCANDIR_SORT_ASCENDING;
+    if ($action == 'blog') { $sort = 1; } // SCANDIR_SORT_DESCENDING;
+    
+    if (file_exists($scandir)){    
+        $pages = scandir($scandir,$sort);
         foreach($pages as $page){
             if (!is_dir($page)){
-                $page = explode('-',$page);
-                if (is_numeric($page[0])){
-                    $page = implode('-',$page);
-                    $pageFile = explode('.',$page);
-                    $pageFile = $pageFile[0];
-
+                $offset --;
+                if ($offset < 0){
                     $page = explode('-',$page);
-                    array_shift($page);           
-                    $page = implode('-',$page);
-                    $pageTitle = explode('.',$page);
-                    $pageTitle = $pageTitle[0];
-                    $pageTitle = ucwords(str_ireplace('-',' ',$pageTitle));
+                    if (is_numeric($page[0])){
+                        $page = implode('-',$page);
+                        $pageFile = explode('.',$page);
+                        $pageFile = $pageFile[0];
 
-                    $return = array('link' => "?action=$action&$action=" . $pageFile,
-                                                    'text' => $pageTitle);
-                    $limit --;
-                    if ($limit == 0){
-                        return $return;
-                    }
+                        $page = explode('-',$page);
+                        array_shift($page);           
+                        $page = implode('-',$page);
+                        $pageTitle = explode('.',$page);
+                        $pageTitle = $pageTitle[0];
+                        $pageTitle = ucwords(str_ireplace('-',' ',$pageTitle));
+
+                        $return = array('link' => "?action=$action&$action=" . $pageFile,
+                                                        'text' => $pageTitle);
+                        $limit --;
+                        if ($limit == 0){
+                            return $return;
+                        }
+                    }    
                 }
             }
         }
