@@ -10,11 +10,17 @@ function widget_categories_go($widget_field,$widget_params,&$data){
     
     switch($widget_field){
         case 2:
+        case 'pages':
             if(isset($data['menu']['pages'])){
                 $return .= '<ul>@@list.menu.pages?li-class=menu-item@@</ul>';
             }
             break;
-        
+        case 'blog':
+            if(isset($data['menu']['blog'])){
+                $return .= '<ul>@@list.menu.blog?li-class=menu-item@@</ul>';
+            }
+            break;
+            
         case 1:
         default:
             if (isset($data['menu']['filter']) && sizeof($data['menu']['filter']) > 0){
