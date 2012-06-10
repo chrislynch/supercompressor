@@ -12,4 +12,6 @@ array_drill_set('_configuration.site.strapline','Centered on controlling the UK\
 
 array_drill_set('seo.title','Pest Control Centric',$data);
 
+$dir_template   = 'templates/conversion/';
+
 ?>

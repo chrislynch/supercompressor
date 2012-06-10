@@ -1,0 +1,46 @@
+<div id="page-header" class="span-24 last">
+    <div id="logo" class="span-9 append-1">
+        <a href="/">
+            @@data._configuration.site.name@@<span style="color:blue">C</span><span style="color:black">e</span><span style="color:red">n</span><span style="color:gold">t</span><span style="color:green">r</span><span style="color:blue">i</span><span style="color:red">c</span>
+            <div id="slogan" class="span-9 last">@@data._configuration.site.strapline@@</div>
+        </a>
+    </div>
+    <div id="advert-1" class="span-4">
+        &nbsp;
+    </div>
+    <div id="cart" class="span-6 prepend-3 last">
+        <br>
+        <div id="googlecart-widget"></div>
+        <!--
+        Basket:<br>
+        @@data.Cart.Items@@, @@data.Cart.Value@@<br>
+        Ready to checkout?
+        -->
+    </div>
+    
+    <div id="primary-menu" class="span-24 last">
+        <div id="search" class="span-7 menu-item">
+            <form action="?action=search" method="POST">
+                Search:
+                <input type="text" name="search" size="15">
+                <input type="submit" value="search">
+            </form>
+        </div>
+        <div id="sections" class="span-17 last">
+            <ul>
+                @@list.menu.browse.Sections?ul-length=5&hidecount=TRUE@@
+                <li><a href="?action=blog">Blog</a></li>
+                <li>SALE</li>
+            </ul>
+        </div>
+        
+        <!--
+            <div class="menu-item span-3 last">Ladders</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 last">DIY</div>
+            <div class="menu-item span-3 ">DIY</div>
+            <div class="menu-item sale span-2 last">SALE!</div>
+        -->
+    </div>
+</div>
