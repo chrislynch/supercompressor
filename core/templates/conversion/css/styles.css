@@ -1,0 +1,433 @@
+@import url("http://fonts.googleapis.com/css?family=Belleza");
+
+body { 
+    display: block;
+    font-family: sans-serif;
+    font-size: 8pt;
+    background-image: url("core/templates/default/css/images/background3.jpg");
+}
+
+h1 {
+    font-size: 24pt;
+    color: #424242;
+    font-family: 'Belleza', sans-serif;
+}
+
+h2 {
+    font-family: 'Belleza', sans-serif;
+    color: navy;
+    font-size: 16pt;    
+}
+
+.container-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-top: 10px;
+    
+    width: 980px;
+    
+    background: white;
+    
+    box-shadow:         0px 0px 20px 3px #ccc;
+    -moz-box-shadow:    0px 0px 20px 3px #ccc;
+    -webkit-box-shadow: 0px 0px 20px 3px #ccc;
+}
+
+#logo {
+    font-family: 'Belleza', sans-serif;
+    color: #424242;
+    font-size: 28pt;
+    font-weight: bold;    
+}
+
+#logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#slogan {
+    font-size: 10pt;
+    color: gray;
+}
+
+#primary-menu {
+    padding-top : 6px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    
+    background: gold;
+    
+    border-radius: 10px 10px 10px 10px; 
+    -moz-border-radius: 10px 10px 10px 10px; 
+    -webkit-border-radius: 10px 10px 10px 10px; 
+    border: goldenrod;
+    display: inline;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    
+    /* font-size: 8pt; */
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#primary-menu #search input[type="text"] {
+    width: 128px;
+}
+
+#primary-menu #search input[type="submit"] {
+    width: 62px;
+}
+
+#primary-menu #sections {
+    padding-top: 5px;
+}
+
+#primary-menu #sections ul {
+    list-style: none;
+    display: inline;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-top: 11px;
+}
+
+#primary-menu #sections ul li {
+    color: blue;
+    display: inline;
+    border-right-style: solid;
+    border-right-color: gainsboro;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2px;
+    font-family: 'Belleza', sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+#primary-menu #sections ul li a{
+    color: blue;
+}
+
+#sidebar-left {
+    /* width: 160px; */
+    margin-right: 10px;
+    border-right-style: solid;
+    border-right-color: gainsboro;
+    border-right-width: 1px;
+}
+
+#sidebar-left h3 {
+    color: navy;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+#sidebar-left ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+#sidebar-left li {
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: gainsboro;
+}
+
+#sidebar-left li a{
+    text-decoration: none;
+    color: black;
+}
+
+#sidebar-left li a:hover{
+    text-decoration: none;
+    color: red;
+}
+
+#cart {
+    text-align: right;
+}
+
+#sidebar-right {
+    /* Need to make this slighly smaller than a span-4 to take into account borders in other places */
+   width: 149px;
+   float: right;
+}
+
+#sidebar-right .boxed {
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: navy;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 140px;
+}
+
+#sidebar-right h3 {
+    background-color: navy;
+    color: white;
+    
+    margin-left: -5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    height: 20px;
+    
+    font-size: 10pt;
+    margin-top: 0px;
+}
+
+#sidebar-right .boxed ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+#sidebar-right #twitter {
+    padding-left: 5px;
+}
+
+#sidebar-right #facebook {
+    padding-left: 5px;
+}
+
+.pager {
+    text-align: right;
+}
+
+.pager ul{
+    float: right;
+    list-style: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.pager ul li{
+    display: inline;
+    padding-left: 5px;
+}
+
+/* INDIVIDUAL SEARCH RESULT */
+
+.search-result{
+    margin-bottom: 5px;
+    margin-right: 2px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: gainsboro;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+.search-result h2{
+    font-size: 14pt;
+}
+
+.product-image-container{
+    height: 204px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.product-image {
+    overflow: hidden;
+    padding: 2px;
+    height: 95%
+}
+
+.search-result .price-list{
+    text-decoration: line-through;
+}
+
+.search-result .price-sell {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.search-result .price-saving {
+    color: red;
+}
+
+.search-result input[type="submit"]{
+    background-attachment:initial;
+    background-clip:initial;
+    background-color:orange;
+    background-image:initial;
+    background-origin:initial;
+    background-position:initial initial;
+    background-repeat:initial initial;
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+    border-top-left-radius:24px;
+    border-top-right-radius:24px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+}
+
+/* HOMEPAGE SEARCH RESULT */
+
+#home h1 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+#home h2{
+    border-bottom: solid;
+    border-bottom-color: navy;
+}
+
+.product-home{
+    margin-bottom: 5px;
+    margin-right: 2px !important;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: gainsboro;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    text-align: center;
+    height: 375px;
+}
+
+.product-home h3 {
+    /* height: 55px; */
+}
+
+.product-home .teaser {
+    font-size: 8pt;
+}
+
+.product-home .price-list{
+    text-decoration: line-through;
+}
+
+.product-home .price-sell {
+    font-size: 14pt;
+    font-weight: bold;
+    color: red;
+    padding-top: 20px;
+}
+
+.product-home .price-saving {
+    color: red;
+}
+
+.product-home input[type="submit"]{
+    background-attachment:initial;
+    background-clip:initial;
+    background-color:orange;
+    background-image:initial;
+    background-origin:initial;
+    background-position:initial initial;
+    background-repeat:initial initial;
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+    border-top-left-radius:24px;
+    border-top-right-radius:24px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+}
+
+/* PRODUCT VIEW */
+
+.product {
+    border-right-style: solid;
+    border-right-color: gainsboro;
+    border-right-width: 1px;
+}
+
+.product h1 {
+    color: navy;
+    margin-top: 10px;
+}
+
+.product h2 {
+    color: navy;
+}
+
+.product .product-image-container {
+    height: 320px;
+}
+
+.product .product-image-container .product-image {
+    height: 98%;
+}
+
+
+.product .price-list{
+    font-size: 10pt;
+    text-decoration: line-through;
+}
+
+.product .price-sell {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.product .price-saving {
+    font-size: 10pt;
+    color: red;
+}
+
+.product input[type="submit"]{
+    background-attachment:initial;
+    background-clip:initial;
+    background-color:orange;
+    background-image:initial;
+    background-origin:initial;
+    background-position:initial initial;
+    background-repeat:initial initial;
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+    border-top-left-radius:24px;
+    border-top-right-radius:24px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+}
+
+/* FOOTER */
+#page-footer {
+    background: gainsboro;
+    min-height: 180px;
+    margin-bottom: -20px;
+}
+
+#page-footer ul{
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+#page-footer li{
+    
+}
+
+/* Stock classes */
+
+.instock {
+    color: green;
+}
+
+.outofstock {
+    color: brown;
+}

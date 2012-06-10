@@ -1,0 +1,27 @@
+<div class="product-home span-9 @@content._islast@@">
+    <div class="span-9 last">
+        <h3><a href="@@content.URL@@">@@content.Title@@</a></h3>
+    </div>
+    <div class="product-image-container span-5 last">
+        <a href="@@content.URL@@">
+            <img src="@@content.Image@@" class="product-image" alt="@@content.Title@@">
+        </a>
+    </div>
+    <div class="span-4 last">
+        <div class="span-4 last">
+            <div class="price-sell product-price">@@content.Product.SellPrice?prefix=£@@</div>
+            <div class="price-list">@@content.Product.WasPrice?prefix=Normally: £@@</div>
+            <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+        </div>
+        <div class="span-4 last">
+            <br>
+            <form action="@@content.URL@@" method="POST">
+                <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
+                <input type="submit" value="More Info">
+            </form>
+        </div>
+    </div>
+    <div class="span-7 append-1 prepend-1 last">
+        @@content.Teaser?markdown=true@@
+    </div>
+</div>

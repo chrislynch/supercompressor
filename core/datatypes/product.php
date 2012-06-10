@@ -12,6 +12,12 @@ function datatype_product_load(&$data){
         array_drill_set('Product.Saving',round(array_drill_get('Product.ListPrice', $data) - array_drill_get('Product.SellPrice', $data),2),$data);
     }
     
+    // Tidy up number formattings
+    array_drill_set('Product.ListPrice',number_format(array_drill_get('Product.ListPrice',$data),2),$data);
+    array_drill_set('Product.SellPrice',number_format(array_drill_get('Product.SellPrice',$data),2),$data);
+    array_drill_set('Product.WasPrice',number_format(array_drill_get('Product.WasPrice',$data),2),$data);
+    array_drill_set('Product.Saving',number_format(array_drill_get('Product.Saving',$data),2),$data);
+    
     // We should have a default image
     $image = array_drill_get('Image',$data);
     if (strlen($image) == 0){
