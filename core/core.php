@@ -68,6 +68,11 @@ function array_drill_set($array_path,$value,&$data){
     }
 }
 
+function array_drill_append($array_path,$value,&$data){
+    $newValue = array_drill_get($array_path, $data) . $value;
+    array_drill_set($array_path,$value,$data);
+}
+
 function data_load($ID, &$todata = FALSE){
     /*
      * Load an item of data from the database
@@ -240,7 +245,22 @@ function include_find($findfile){
     if ($domaindir !== '' && file_exists($domaindir . $findfile)){
         return $domaindir . $findfile;
     } else {
-        return 'core/' . $findfile;
+        if (file_exists('core/' . $findfile)){
+            return 'core/' . $findfile;
+        } else {
+            if (strstr($findfile,'templates')){
+                $findfile = explode('/',$findfile);
+                if ($findfile[1] !== 'default'){ 
+                    $findfile[1] = 'default';
+                    $findfile = implode('/',$findfile);
+                    return include_find($findfile);
+                } else {
+                    return FALSE;
+                }
+            } else {
+                return FALSE;
+            }
+        }
     }        
 }
 
