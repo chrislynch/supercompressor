@@ -36,7 +36,11 @@
     <div class="span-16 last">        
         <a name="productdescription"><h2>@@content.Title@@ Description</h2></a>
         @@content.Body?markdown=true@@
-        <h2>@@content.Title@@ Specification</h2>
+    <h2>@@content.Title@@ Specification</h2>
+	<table>
+		<tr><td><strong>Brand: </strong></td><td>@@content.Category.Brand@@</td></tr>
+		<tr><td><strong>Product: </strong></td><td>@@content.Category.Product@@</td></tr>
+	</table>
         @@content.Specification@@
     </div>
     <div id="comments" class="span-16 last">
