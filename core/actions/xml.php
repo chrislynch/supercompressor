@@ -48,8 +48,8 @@ function action_xml_googlemerchant(&$data){
     print '<?xml version="1.0"?> 
             <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"> 
             <channel>
-            <title>University of Oxford Shop | Oxford Clothing, Gifts and Souvenirs from the University of Oxford</title> 
-            <link>http://www.oushop.com</link>
+            <title>' . $data['_configuration']['site']['name'] . '</title> 
+            <link>' . $data['_configuration']['site']['domain'] . '</link>
             <description></description>';
 
     $products = mysql_query('SELECT ID FROM sc_index WHERE Type = "Product" AND Status = 1');
