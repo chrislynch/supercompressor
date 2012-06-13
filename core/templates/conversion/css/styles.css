@@ -28,6 +28,25 @@
     margin-top: 3px;
 }
 
+/* SEARCH RESULT ENHANCEMENTS */
+.search-result h2{
+    font-size: 18pt;
+    
+}
+.search-result .price-sell{
+    color: red;
+    font-size: 24pt;
+}
+
+.search-result .price-list {
+    font-size: 14pt;
+}
+
+.search-result .price-saving {
+    font-size: 16pt;
+    margin-top: 3px;
+}
+
 /* PRODUCT PAGE ENHANCEMENTS */
 
 .product .price-sell{
