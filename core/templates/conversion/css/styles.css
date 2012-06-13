@@ -27,3 +27,24 @@
     font-size: 18pt;
     margin-top: 3px;
 }
+
+/* PRODUCT PAGE ENHANCEMENTS */
+
+.product .price-sell{
+    padding-top: auto;
+    font-size: 24pt;
+    color: red;
+}
+
+.product .price-list {
+    font-size: 14pt;
+}
+
+.product .price-saving {
+    font-size: 18pt;
+    margin-top: 3px;
+}
+
+.googlecart-add-button {
+    margin-top: 5px;
+}
