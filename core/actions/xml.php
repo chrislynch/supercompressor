@@ -63,7 +63,8 @@ function action_xml_googlemerchant(&$data){
         print _action_xml_xmlelement('g:product_type',array_drill_get('Category.Product',$product));
         print _action_xml_xmlelement('link',$data['_configuration']['site']['domain'] . '/' .  $product['URL']);
         print _action_xml_xmlelement('g:image_link',$data['_configuration']['site']['domain'] .  $product['Image']);
-        print _action_xml_xmlelement('g:condition',array_drill_get('Google.Shopping.Condition',$product,'new'));
+        // print _action_xml_xmlelement('g:condition',array_drill_get('Google.Shopping.Condition',$product,'new'));
+        print _action_xml_xmlelement('g:condition','new');
         print '<g:availability>in stock</g:availability>';
         
         // Pricing and Shipping
