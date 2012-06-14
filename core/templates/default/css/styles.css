@@ -51,6 +51,17 @@ h2 {
     color: gray;
 }
 
+#cart {
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 5px;
+}
+
+#discount {
+    text-align: right;
+}
+
 #primary-menu {
     padding-top : 6px;
     padding-bottom: 5px;

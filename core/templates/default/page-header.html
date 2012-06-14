@@ -5,18 +5,26 @@
             <div id="slogan" class="span-9 last">@@data._configuration.site.strapline@@</div>
         </a>
     </div>
+    <!--
     <div id="advert-1" class="span-4">
         &nbsp;
     </div>
-    <div id="cart" class="span-6 prepend-3 last">
-        <br>
-        <div id="googlecart-widget"></div>
-        <!--
-        Basket:<br>
-        @@data.Cart.Items@@, @@data.Cart.Value@@<br>
-        Ready to checkout?
-        -->
+    -->
+    <div class="span-14 last">
+        <div id="cart" class="span-14 last">
+            <div id="DEPRECATED_googlecart-widget"></div>
+            Your Basket: @@data.Cart.Items@@, @@data.Cart.Value@@
+            <a href="?action=checkout" id="checkout_link">Ready to checkout?</a>
+        </div>
+        <div id="discount" class="span-14 last">
+            <form action="?action=discount" method="POST">
+                <label>Got one of our discount codes? Enter it here to see immediate savings: </label>
+                <input type="text" name="discount_code" size="10">
+                <input type="submit" value="GO!">
+            </form>
+        </div>
     </div>
+    
     
     <div id="primary-menu" class="span-24 last">
         <div id="search" class="span-7 menu-item">
