@@ -27,3 +27,8 @@ CREATE TABLE  `sc_link` (
   PRIMARY KEY (`fromID`,`toID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `sc_tags` (
+  `ID` INT NOT NULL ,
+  `Tag` VARCHAR(255) NOT NULL ,
+  PRIMARY KEY (`ID`, `Tag`) );
+

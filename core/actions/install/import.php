@@ -13,6 +13,7 @@ function action_install_import_go(&$data){
     mysql_query('TRUNCATE sc_data');
     mysql_query('TRUNCATE sc_search');
     mysql_query('TRUNCATE sc_link');
+    mysql_query('TRUNCATE sc_tag');
     
     // Ascertain size of CSV file
     $csvfile = fopen(array_drill_get('_configuration.site.domaindir',$data) . 'import.csv','r');
@@ -39,11 +40,17 @@ function action_install_import_go(&$data){
         $i++;
     }
 
+    // Add data into the tags table
+    mysql_query('INSERT INTO sc_tags
+                 SELECT ID,Value
+                 FROM   sc_data WHERE Field = "Section" OR Field LIKE "Category.%"');
+    
     cliPrint('Stripping field_ and _value from Field names in sc_data');
     mysql_query('UPDATE sc_data SET Field = REPLACE(Field,"field_","Specification.")',$db);
     mysql_query('UPDATE sc_data SET Field = REPLACE(Field,"_value","")',$db);
     
     // Now build category records
+    /*
     $categoryTypeData = mysql_query('SELECT DISTINCT(Field) FROM sc_data WHERE Field LIKE "Category.%"');
     while($categoryType = mysql_fetch_array($categoryTypeData)){
         $categoryMemberData = mysql_query('SELECT DISTINCT(Value) FROM sc_data WHERE Field = "' . $categoryType[0] . '"');
@@ -57,7 +64,7 @@ function action_install_import_go(&$data){
             data_save($record);
         }
     }
-    
+    */
     
     cliPrint('Import Complete');
 }

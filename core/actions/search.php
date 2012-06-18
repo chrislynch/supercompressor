@@ -18,13 +18,17 @@ function action_search_go(&$data){
         $searchSQL = '';
     }
     // Add in any keyword searches
-    /*
-     * $SQL .= ' MATCH(s.search_text) AGAINST ("' . $keywords .'") as Relevance,';
-				$SQL .= ' MATCH(s.search_text) AGAINST ("' . $keywords .'" WITH QUERY EXPANSION) as Expanded_Relevance'; 
-				if ($warp_search_usePhraseMatch){ $SQL .= ',';}
-			}
-			if ($warp_search_usePhraseMatch){ $SQL .= ' MATCH(search_text) AGAINST ("""' . $keywords . '""" IN BOOLEAN MODE) as PhraseMatch ';}
-     */
+    
+    if (isset($_REQUEST['search'])){
+        $SQL .= ' MATCH(s.search_text) AGAINST ("' . $_REQUEST['search'] .'") as Relevance,';
+        $SQL .= ' MATCH(s.search_text) AGAINST ("' . $_REQUEST['search'] .'" WITH QUERY EXPANSION) as Expanded_Relevance'; 
+        if ($warp_search_usePhraseMatch){ $SQL .= ',';}
+        if ($warp_search_usePhraseMatch){ $SQL .= ' MATCH(search_text) AGAINST ("""' . $_REQUEST['search'] . '""" IN BOOLEAN MODE) as PhraseMatch ';}
+    }
+    
+    if(isset($data['x'])){
+        $_REQUEST['search.Section'] = $data['x'];
+    }
     
     // Add on browses and filters
     $i = 1;

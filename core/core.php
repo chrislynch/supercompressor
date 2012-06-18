@@ -189,13 +189,17 @@ function url_action($url,&$data){
     } else if (strstr(strtolower($url),'.html')){
         return '404';
     } else if (isset($_REQUEST['action'])){
-        return $_REQUEST['action'];
+        if (file_exists('core/actions/' . $_REQUEST['action'] . '.php')){
+            return $_REQUEST['action'];
+        } else {
+            return '403';
+        }
     } else if (strlen($url) > 0){
         // Try to match the start of the URL to an existing action
         $action_text = explode('/',$url); 
         $action_text = $action_text[0];
-        if (find_include('actions/' . $action_text . '.php')){
-            if (find_include('templates/default/actions/' . $action_text . '.html')){
+        if (file_exists('core/actions/' . $action_text . '.php')){
+            if (file_exists('templates/default/actions/' . $action_text . '.html')){
                 return $action_text;
             } else {
                 return '403';
@@ -231,7 +235,7 @@ function url_build($params,$url = '', $keepparameters = TRUE){
 	
     if ($keepparameters){
         foreach($_GET as $key=>$value){
-            if (!(key_exists($key, $params)) && $key !== 'q'){
+            if (!(key_exists($key, $params)) && $key !== 'x'){
                 $key = str_ireplace('_', '.', $key);
                 $urlparams .= '&' . $key . '=' . urlencode($value); 
             }
