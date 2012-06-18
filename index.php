@@ -21,7 +21,6 @@ if (isset($_REQUEST['action'])){
 }
 
 ksort($data['_configuration']['actions']);
-
 foreach($data['_configuration']['actions'] as $action){
     include_once find_include('actions/' . $action . '.php');
     /*

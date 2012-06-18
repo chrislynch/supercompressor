@@ -185,6 +185,8 @@ function url_action($url,&$data){
         return 'xml';
     } else if (strstr(strtolower($url),'.txt')){
         return 'txt';
+    } else if (strstr(strtolower($url),'.html')){
+        return '404';
     } else {
         // Try to find the URL as a clean URL in the index
         $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';
