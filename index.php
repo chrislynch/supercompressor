@@ -9,18 +9,11 @@ include 'bootstrap.php';
 /*
  * Decide what action we are doing and then do it
  */
-if (isset($_REQUEST['action'])){
-    // We have requested a specific action
-    $data['_configuration']['actions'][0] = $_REQUEST['action'];
-} elseif (isset($_REQUEST['x'])){
-    // We are looking for a specific action based on URL.
-    $data['_configuration']['actions'][0] = url_action($_REQUEST['x'], $data);
-} else {
-    // No URL defined, so we are on the home page
-    $data['_configuration']['actions'][0] = 'home';
-}
 
+
+$data['_configuration']['actions'][0] = url_action(@$_REQUEST['x'], $data);
 ksort($data['_configuration']['actions']);
+
 foreach($data['_configuration']['actions'] as $action){
     include_once find_include('actions/' . $action . '.php');
     /*

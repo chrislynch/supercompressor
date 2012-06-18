@@ -179,6 +179,7 @@ function data_index($ID = 0){
 function url_action($url,&$data){
     // Turn a URL into an action.
     // Provide access to $data just in case.
+    $data['x'] = $url;
     
     // Check to see if this is a request for an XML file
     if (strstr(strtolower($url),'.xml')){
@@ -187,21 +188,38 @@ function url_action($url,&$data){
         return 'txt';
     } else if (strstr(strtolower($url),'.html')){
         return '404';
-    } else {
-        // Try to find the URL as a clean URL in the index
-        $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';
-        $urlData = mysql_query($urlSQL);
-        if (mysql_num_rows($urlData) == 1){
-            // We have a single item match
-            while ($urlItem = mysql_fetch_assoc($urlData)){
-                data_load($urlItem['ID']);
+    } else if (isset($_REQUEST['action'])){
+        return $_REQUEST['action'];
+    } else if (strlen($url) > 0){
+        // Try to match the start of the URL to an existing action
+        $action_text = explode('/',$url); 
+        $action_text = $action_text[0];
+        if (find_include('actions/' . $action_text . '.php')){
+            if (find_include('templates/default/actions/' . $action_text . '.html')){
+                return $action_text;
+            } else {
+                return '403';
             }
-            // Return the action that we are going to run.
-            return 'item';
         } else {
-            // For now, assume that *anything else* is a search
-            return 'search';
+            // Try to find the URL as a clean URL in the index
+            $urlSQL = 'SELECT ID FROM sc_index WHERE URL = "' . $url . '"';
+            $urlData = mysql_query($urlSQL);
+            if (mysql_num_rows($urlData) == 1){
+                // We have a single item match
+                while ($urlItem = mysql_fetch_assoc($urlData)){
+                    data_load($urlItem['ID']);
+                }
+                // Return the action that we are going to run.
+                return 'item';
+            } else {
+                // For now, assume that *anything else* is a search
+                return 'search';
+            }
         }
+        
+    } else {
+        // With the obvious exception of a blank URL, which takes us home.
+        return 'home';
     }
 }
 

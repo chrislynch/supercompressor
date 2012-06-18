@@ -4,6 +4,4 @@ function action_404_go(&$data){
     header("Status: 404 Not Found");
     exit;
 }
-    
-
 ?>
