@@ -44,13 +44,15 @@ function render_widget($widget,$data, $recursion_depth = 0){
             global $dir_template;
             $loopcontent = array_drill_get($widget_field,$data);
 	    $loopcount = 0;
+            if (isset($widget_params['limit'])) { $looplimit = $widget_params['limit']; } else { $looplimit = -1;}
+            if (isset($widget_params['offset'])) { $loopoffset = $widget_params['offset']; } else { $loopoffset = -1;}
             if (is_array($loopcontent)){
                 foreach($loopcontent as $loopcontentID => $loopcontentitem){
                     $loopcount += 1; 
-		    if (isset($widget_params['grid'])){
-		        if($loopcount % $widget_params['grid'] == 0) { $loopcontentitem['_islast'] = 'last';}
-		    }
-                    $return .= render_template(find_include($dir_template . $widget_params['template']), $loopcontentitem);
+                    if(($loopcount <= $looplimit OR $looplimit == -1) AND ($loopcount > $loopoffset OR $loopoffset == -1)){
+                        if (isset($widget_params['grid'])){ if($loopcount % $widget_params['grid'] == 0) { $loopcontentitem['_islast'] = 'last';} }
+                        $return .= render_template(find_include($dir_template . $widget_params['template']), $loopcontentitem);
+                    }
                 }
             }
             break;

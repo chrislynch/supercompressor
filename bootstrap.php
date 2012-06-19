@@ -28,10 +28,12 @@ $data['_configuration']['renderers'][0] = 'html';
 // Templates
 $data['_configuration']['templates'][-4] = 'html-header';
 $data['_configuration']['templates'][-3] = 'page-header';
+/*
 $data['_configuration']['templates'][-2] = 'sidebar-left';
 $data['_configuration']['templates'][-1] = 'content-header';
 $data['_configuration']['templates'][1] = 'content-footer';
 $data['_configuration']['templates'][2] = 'sidebar-right';
+ */
 $data['_configuration']['templates'][3] = 'page-footer';
 $data['_configuration']['templates'][4] = 'html-footer';
 
@@ -51,8 +53,8 @@ array_drill_set('_configuration.categories.brand.menu','Brands',$data);
 $data['_content'] = array();
 $data['templates'] = $data['_configuration']['templates'];
 
-$dir_template   = 'templates/default/';
-$data['_configuration']['template']['name'] = 'default';
+$dir_template   = 'templates/professional/';
+$data['_configuration']['template']['name'] = 'professional';
 
 // SEO Starter
 array_drill_set('seo.title','',$data);

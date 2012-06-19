@@ -1,0 +1,36 @@
+<div class="span-6 @@content._islast@@">
+    <div class="border-lr">
+        <h3>@@content.Title@@</h3>
+        <img class="h200px" src="@@content.Image@@"><br>
+        <div class="price-sell product-price">@@content.Product.SellPrice?prefix=£@@</div>
+        <div class="price-list">@@content.Product.WasPrice?prefix=Normally: £@@</div>
+        <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+        <form>
+            <input type="button" value="Add to Cart">
+        </form>
+    </div>
+</div>
+<!--
+<div class="product-home span-4 @@content._islast@@">
+    <div class="product-image-container span-4 last">
+        <a href="@@content.URL@@">
+            <img src="@@content.Image@@" class="product-image" alt="@@content.Title@@">
+        </a>
+    </div>
+    <div class="span-4 last">
+        <div class="span-4 last"><h3><a href="@@content.URL@@">@@content.Title@@</a></h3></div>
+        
+        <div class="span-4 last">
+            <div class="price-sell product-price">@@content.Product.SellPrice?prefix=£@@</div>
+            <div class="price-list">@@content.Product.WasPrice?prefix=Normally: £@@</div>
+            <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+        </div>
+        <div class="span-4 last">
+            <form action="?action=cart" method="POST">
+                <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
+                <input type="submit" value="Add to Cart">
+            </form>
+        </div>
+    </div>
+</div>
+-->

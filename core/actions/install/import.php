@@ -24,30 +24,41 @@ function action_install_import_go(&$data){
     rewind($csvfile);
 
     // Import every item in CSV file
-    $fields = fgetcsv($csvfile);
     $i = 1;
     $importedrowcount = 0;
+    
     while($csvrecord = fgetcsv($csvfile,0)){
-        $record = array();
-        for ($index = 0; $index < sizeof($fields); $index++) {
-            array_drill_set($fields[$index], $csvrecord[$index], $record);
+        if ($csvrecord[0] == 'ID'){
+            // This is a row of field definitions
+            $fields = $csvrecord;
+        } elseif (is_numeric($csvrecord[0])) {
+            $record = array();
+            for ($index = 0; $index < sizeof($fields); $index++) {
+                array_drill_set($fields[$index], $csvrecord[$index], $record);
+            }
+            // print_r($record);
+            data_save($record);
+            $importedrowcount ++;
+            $importPC = round(($importedrowcount / $rowcount) * 100,2);
+            cliPrint('Saved record ID ' . $record['ID'] . ' Import is ' . $importPC . '% complete');
+            $i++;
+        } else {
+            // Assume that this is a blank line?
         }
-        // print_r($record);
-        data_save($record);
-        $importedrowcount ++;
-        $importPC = round(($importedrowcount / $rowcount) * 100,2);
-        cliPrint('Saved record ID ' . $record['ID'] . ' Import is ' . $importPC . '% complete');
-        $i++;
     }
 
     // Add data into the tags table
+    cliPrint('Build data for sc_tags table');
     mysql_query('INSERT INTO sc_tags
                  SELECT ID,Value
                  FROM   sc_data WHERE Field = "Section" OR Field LIKE "Category.%"');
-    
+    cliPrint('Build data for sc_tags table complete');
+
+    /*
     cliPrint('Stripping field_ and _value from Field names in sc_data');
     mysql_query('UPDATE sc_data SET Field = REPLACE(Field,"field_","Specification.")',$db);
     mysql_query('UPDATE sc_data SET Field = REPLACE(Field,"_value","")',$db);
+     */
     
     // Now build category records
     /*

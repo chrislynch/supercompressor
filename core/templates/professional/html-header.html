@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <base href="//@@data._configuration.site.domain@@">
+                
+                <link rel="icon" type="image/png" href="favicon.ico">
+                
+		<!-- Title and SEO information -->
+		<title>@@data.seo.title@@</title>
+		
+                <meta name="keywords" content="@@data.seo.keywords@@" />
+		<meta name="description" content="@@data.seo.description@@" />
+		<meta name="abstract" content="@@data.seo.abstract@@" />
+		
+		<meta name="copyright" content="@@data.seo.copyright@@" />
+		
+               <!-- Dublin Core -->
+                <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" /> 
+                <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" /> 
+                <meta name="DC.title" content="@@data.seo.title@@" /> 
+                <meta name="DC.creator" content="eCommerceCentric Ltd" /> 
+                <meta name="DC.subject" content="@@data.seo.keywords@@" /> 
+                <meta name="DC.description" content="@@data.seo.description@@" /> 
+                <meta name="DC.publisher" content="eCommerceCentric Ltd" /> 
+                <meta name="DC.contributor" content="eCommerceCentric Ltd" /> 
+                <meta name="DC.date" content="23/05/2012" /> 
+                <meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" /> 
+                <meta name="DC.format" content="text/html" /> 
+                <meta name="DC.format" content="12642 bytes" /> 
+                <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://@@data._configuration.site.domain@@" /> 
+                
+                <!-- Geo Tagging -->
+                <meta name="geo.region" content="GB-VGL" />
+                <meta name="geo.placename" content="Taff\'s Well" />
+                <meta name="geo.position" content="51.563899;-3.264585" />
+                <meta name="ICBM" content="51.563899, -3.264585" />
+                
+		<!-- Google, Yahoo, and Bing tracking -->
+		<meta name="google-site-verification" content="@@data.seo.google.webmastertools.account@@" />
+		<meta name="y_key" content="" />
+		<meta name="msvalidate.01" content="20CE00102B0D5E01CD915F444BBD109C" />
+		
+		<!-- URL canonicalisation -->
+		<link rel="canonical" href="@@data.seo.canonical@@" />
+		
+		<!-- ROBOTS directives -->
+		<meta name="robots" content="index,follow" />
+		
+		<!-- Blueprint CSS http://www.blueprintcss.org -->
+		<link rel="stylesheet" href="lib/blueprint/src/grid.css" type="text/css" media="screen, projection">		
+		<!--[if lt IE 8]>
+			<link rel="stylesheet" href="engine4.net/lib/blueprint/ie.css" type="text/css" media="screen, projection">
+		<![endif]-->
+
+                <!-- Site CSS -->
+                <link rel="stylesheet" href="core/templates/professional/style.css" type="text/css" media="screen, projection">
+			
+                <script type="text/javascript">
+                    var _gaq = _gaq || [];
+                    _gaq.push(['_setAccount', '@@data.seo.google.analytics.account@@']);
+                    _gaq.push(['_setDomainName', '@@data._configuration.site.domain@@']);
+                    _gaq.push(['_setAllowLinker', true]);
+                    _gaq.push(['_trackPageview']);
+
+                    (function() {
+                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                    })();
+                </script>
+                <!--
+                <script id="googlecart-script" type="text/javascript"
+                        src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=627458445324618"
+                        currency="GBP">
+                </script>
+                -->
+                
+                <link href='http://fonts.googleapis.com/css?family=Radley|PT+Sans&v2' rel='stylesheet' type='text/css'>
+                <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed' rel='stylesheet' type='text/css'>
+
+
+                <!-- JQUERY -->
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+                <!-- MEGA MENU -->
+                <!-- http://www.geektantra.com/2010/05/jquery-megamenu-2/ -->
+                <link rel="stylesheet" href="core/templates/professional/js/jquery-megamenu.2.1/stylesheets/jquery.megamenu.css" type="text/css" media="screen" />
+                <script src="core/templates/professional/js/jquery-megamenu.2.1/javascripts/jquery.megamenu.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                jQuery(function(){
+                    var SelfLocation = window.location.href.split('?');
+                    switch (SelfLocation[1]) {
+                    case "justify_right":
+                        jQuery(".megamenu").megamenu({ 'justify':'right' });
+                        break;
+                    case "justify_left":
+                    default:
+                        jQuery(".megamenu").megamenu();
+                    }
+                });
+                </script>
+                <!-- / MEGA MENU -->
+
+                <!-- Show Off http://ekallevig.com/jshowoff/ -->
+                <script src="core/templates/professional/js/jquery.jshowoff.min.js" type="text/javascript"></script>
+                <!-- <link rel="stylesheet" href="js/jshowoff.css" type="text/css" media="screen" /> -->
+                <script type="text/javascript">		
+                    $(document).ready(function(){ $('#features').jshowoff({ speed:5000, controls: false, links: false, effect: 'slideLeft' }); });
+                </script>
+                
+	</head>
+        <body>

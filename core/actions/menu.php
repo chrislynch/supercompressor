@@ -40,7 +40,7 @@ function action_menu_go(&$data){
         
         while($menuItem = mysql_fetch_assoc($menusData)){
             $data['menu']['browse'][$menuKey][] = array('link'=>'' .  /* $menuField . */ '/' . $menuItem['category'],
-                                                'text'=> $menuItem['category'] . ' (' . $menuItem['members'] . ')');
+                                                'text'=> $menuItem['category']);
         }
     }
     
