@@ -1,18 +1,19 @@
-<div class="search-result span-16 last">
-    <div class="product-image-container span-6">
+<div class="span-16 last">
+    <div class="span-16 last"><h2><a href="@@content.URL@@">@@content.Title@@</a></h2></div>
+    
+    <div class="span-4">
         <a href="@@content.URL@@">
-            <img src="@@content.Image@@" class="product-image" alt="@@content.Title@@">
+            <img src="@@content.Image@@" class="w100" alt="@@content.Title@@">
         </a>
     </div>
-    <div class="span-10 last">
-        <div class="title span-10 last"><h2 class="product-title"><a href="@@content.URL@@">@@content.Title@@</a></h2></div>
+    <div class="span-12 last">
         
-        <div class="span-6">
+        <div class="span-5 prepend-1">
             <div class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</div>
             <div class="price-sell product-price">@@content.Product.SellPrice?prefix=Now: £@@</div>
             <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
         </div>
-        <div class="span-4 last">
+        <div class="span-6 last">
             <!--
             <form action="?action=cart" method="POST">
                 <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
@@ -21,10 +22,10 @@
             -->
         </div>
         
-        <div class="teaser span-9 append-1 last">
+        <div class="span-10 prepend-1 append-1 last">
             @@content.Teaser?markdown=true@@
         </div>
-        <div class="span-9 append-1 last @@content.Product.Stock.Message?asCSSclass=true@@">
+        <div class="span-10 prepend-1 append-1 last @@content.Product.Stock.Message?asCSSclass=true@@">
             Stock: @@content.Product.Stock.Message@@
         </div>
     </div>

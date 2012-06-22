@@ -1,3 +1,18 @@
-<div class="span-16 last">
-    @@loop._content?template=items/product-search.html@@
+<div id="content" class="container">
+    <div class="span-4 shade">
+        <div class="ppx">
+            <h3>Filter Products</h3>
+            <ul class="nolist">
+                @@list.menu.filter.Product?ul-length=5&hidecount=TRUE@@
+            </ul>
+            <h3>Browse</h3>
+            <ul class="nolist">
+                @@list.menu.browse.Product?ul-length=5&hidecount=TRUE@@
+            </ul>
+        </div>
+    </div>
+    <div class="span-16">
+        @@loop._content?template=loops/product-search.html@@
+    </div>
+    <div class="span-4 last"></div>
 </div>

@@ -43,6 +43,8 @@ h2, h3, h4{
     filter:alpha(opacity=80);
 
     color: white;
+    text-decoration: none;
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -63,8 +65,10 @@ h2, h3, h4{
         float: left;
     }
 
-    #headerheadercontainer #logo h1 {
+    #headerheadercontainer #logo h1, #logo h1 a {
         margin-top: 0px;
+        text-decoration: none;
+        color: white;
     }
     
     #headerheadercontainer #cart{
@@ -126,7 +130,7 @@ h2, h3, h4{
         border-bottom-width: 4px;
     }
     
-    #content h2{
+    #content h2, #content h2 a{
         margin-top: 20px;
         color: #444444;
         border-top-style: solid;
@@ -136,6 +140,8 @@ h2, h3, h4{
         border-bottom-style: solid;
         border-bottom-color: darkred;
         border-bottom-width: 2px;
+        
+        text-decoration: none;
     }
     
     #content h4{
@@ -211,4 +217,32 @@ root {
     padding-right: 2px;
     
     text-align: center;
+}
+
+.nolist {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+    .nolist li {
+        border-bottom-style: dotted;
+        border-bottom-color: darkgreen;
+        border-bottom-width: 1px;
+
+        margin-bottom: 10px;
+    }
+
+    .nolist li a {
+        color: black;
+        text-decoration: none;
+    }
+
+.ppx {
+    padding-left: 5px;
+    padding-right: 5px;
+}    
+    
+.shade {
+    background-color: #A9F5A9;
 }
