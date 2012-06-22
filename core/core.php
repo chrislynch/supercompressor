@@ -70,7 +70,7 @@ function array_drill_set($array_path,$value,&$data){
 
 function array_drill_append($array_path,$value,&$data){
     $newValue = array_drill_get($array_path, $data) . $value;
-    array_drill_set($array_path,$value,$data);
+    array_drill_set($array_path,$newValue,$data);
 }
 
 function data_load($ID, &$todata = FALSE){
