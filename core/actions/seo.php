@@ -14,7 +14,10 @@ function action_seo_go(&$data){
         }
     } else {    
         // What to do depends on our action
-        // TODO: Decide if SEO action should do this, or if each action should do its own SEO. Centralisation makes sense...
+        if (isset($_REQUEST['x'])){
+            array_drill_append('seo.title',' ' . $_REQUEST['x'],$data);
+        }
+        
         if (isset($_GET['action'])){
             switch($_GET['action']){
                 case 'blog':
@@ -28,8 +31,8 @@ function action_seo_go(&$data){
                             $newTitle .= $value;
                         }
                     }
-                    $newTitle = 'Searching for ' . $newTitle;
-                    array_drill_set('seo.title',$newTitle,$data);
+                    $newTitle = ' searching for ' . $newTitle;
+                    array_drill_append('seo.title',$newTitle,$data);
             }
         }
     }
