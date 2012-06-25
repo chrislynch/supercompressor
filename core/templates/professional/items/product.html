@@ -1,14 +1,57 @@
 <div id="content" class="w100">
     <div class="container">
-        <div class="span-4">&nbsp;</div>
+        <div class="span-4 shade">
+            <div class="ppx">
+                <h3>Browse</h3>
+                <ul class="nolist">
+                    @@list.menu.browse.Product?ul-length=5&hidecount=TRUE@@
+                </ul>
+            </div>
+        </div>
         <div class="span-20 last">
-            <div class="spsn-20 last"><h1 class="product-title">@@content.Title@@</h1></div>
-            <div class="span-16">
+            <div class="span-20 last"><h1 class="product-title">@@content.Title@@</h1></div>
+            <div class="span-20 last">
                 <div class="span-8">
                     <img src="@@content.Image@@" class="w100" alt="@@content.Title@@">
                 </div>
+                <div class="span-12 last"> 
+                    <div class="span-12 last">
+                        @@content.Teaser?markdown=true@@
+                    </div>
+                    
+                    <div class="span-6">
+                        <div class="price-sell product-price">@@content.Product.SellPrice?prefix=Now: £@@</div>
+                        <div class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</div>
+                        <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+                        <br>
+                        Product Code: @@content.Product.SKU@@<br>
+                        Stock: @@content.Product.Stock.Message@@<br>
+                    </div>
+                    <div class="span-6 last">
+                        <input type="submit" value="Add to Cart">
+                    </div>
+                    
+                    <div class="span-12 last">
+                        <br><br>
+                        <div class="addthis_toolbox addthis_default_style ">
+                            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                            <a class="addthis_button_tweet"></a>
+                            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                        </div>
+                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f9ac62e76cb9e71"></script>
+                    </div>
+                </div>
             </div>
-            <div class="span-4 last">&nbsp;</div>
+            <div class="span-20 last">        
+                <h2>@@content.Title@@ Description</h2>
+                @@content.Body?markdown=true@@
+                <h2>@@content.Title@@ Specification</h2>
+                <table>
+                        <tr><td><strong>Brand: </strong></td><td>@@content.Category.Brand@@</td></tr>
+                        <tr><td><strong>Product: </strong></td><td>@@content.Category.Product@@</td></tr>
+                </table>
+                @@content.Specification@@
+            </div>
         </div>
     </div>
 </div>
