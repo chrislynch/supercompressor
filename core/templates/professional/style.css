@@ -104,7 +104,9 @@ a {
         padding-left: 5px;
     }
     
-    #headerheadercontainer #cart #checkout a{
+    #headerheadercontainer #cart p, #headerheadercontainer #cart #checkout a{
+        margin-top: 8px;
+        margin-right: 5px;
         color: white;
     }
 
