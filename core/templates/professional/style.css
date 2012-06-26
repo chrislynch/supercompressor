@@ -209,6 +209,12 @@ root {
     display: block;
 }
 
+/* CONTENT TYPE SPECIFIC IDS AND CLASSES */
+
+#product-buynow{
+    padding-top: 25px;
+}
+
 /* HELPERS */
 
 .w100 {
@@ -266,4 +272,23 @@ root {
     
 .shade {
     background-color: #A9F5A9;
+}
+
+/* PRICE CLASSES */
+
+.price-list {
+    text-decoration: line-through;
+    font-weight: bold;
+}
+
+.price-sell {
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
+
+.price-saving {
+    font-size: 1em;
+    font-weight: bold;
+    color: darkred;
 }
