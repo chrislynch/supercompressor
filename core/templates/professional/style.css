@@ -41,7 +41,8 @@ a {
 }
 
 #headerheader {
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -201,6 +202,10 @@ a {
         padding-left: 10px;
     }
     
+    #footerfooter li a {
+        color: white;
+    }
+    
     #footerfooter p a {
         color: red;
     }
@@ -221,8 +226,21 @@ root {
     width: 100%;
 }
 
+.h65px{
+    height: 65px;
+}
+
+.h95px{
+    height: 95px;
+}
+
 .h200px {
     height: 200px;
+    overflow: hidden;
+}
+
+.h220px {
+    height: 220px;
     overflow: hidden;
 }
 

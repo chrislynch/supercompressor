@@ -7,6 +7,9 @@ if (!strstr($_SERVER['HTTP_HOST'],'dev.')){
 }
 $data['_configuration']['db']['schema']    = 'centric_solarpanel';
 
+$dir_template   = 'templates/conversion/';
+$data['_configuration']['template']['name'] = 'conversion';
+
 array_drill_set('_configuration.site.name','SolarPanel',$data);
 array_drill_set('_configuration.site.strapline','Bringing trade price solar panels to UK consumers',$data);
 

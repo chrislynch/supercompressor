@@ -2,7 +2,7 @@
     <div class="container">
         <div class="span-7 append-1">
             <h5>About Us</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas euismod laoreet. Proin consequat libero non tortor blandit eu aliquet odio volutpat. Quisque at lacus eu nibh interdum rhoncus. Suspendisse iaculis scelerisque sagittis. Morbi placerat libero vel erat tincidunt molestie. Donec ornare imperdiet fermentum. Duis rhoncus blandit ultrices. Phasellus eu lectus lectus. Fusce gravida condimentum sapien, id molestie magna consectetur commodo.</p>
+            @@snippet.footer.aboutus?markdown=true@@
         </div>
         <div class="span-7 append-1">
             <h5>Contact Us</h5>
@@ -18,9 +18,8 @@
         <div class="span-6">
             <h5>Information</h5>
             <ul>
-                <li>About Us</li>
-                <li>Terms and Conditions</li>
-                <li>Privacy Policy</li>
+                <li><a href="/?action=page&page=terms-and-conditions" rel="no-follow">Terms and Conditions</a></li>
+                <li><a href="/?action=page&page=privacy-policy" rel="no-follow">Privacy Policy</a></li>
                 <li>Cookie Statement</li>
             </ul>
         </div>
@@ -42,6 +41,7 @@
         <div class="span-6 last">
             <h5>An eCommerceCentric site</h5>
             <p>Pest Control Centric is a part of the <a href="http://www.ecommercecentric.co.uk">eCommerceCentric</a> group of websites.</p>
+            <p><a href="/?action=page&page=about-us" rel="no-follow">Read more about eCommerce Centric</a></p>
         </div>
     </div>
 </div>

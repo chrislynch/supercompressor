@@ -7,13 +7,13 @@ if (!strstr($_SERVER['HTTP_HOST'],'dev.')){
 } 
 $data['_configuration']['db']['schema']    = 'centric_remotecontrol';
 
+$dir_template   = 'templates/default/';
+$data['_configuration']['template']['name'] = 'default';
+
 array_drill_set('_configuration.site.name','RemoteControl',$data);
 array_drill_set('_configuration.site.strapline','Replacing the UK\'s lost and damaged remote controls',$data);
 
-
 array_drill_set('seo.title','Remote Control Centric',$data);
-
-
 
 array_drill_set('_configuration.about.welcome','
 ',$data);

@@ -6,27 +6,32 @@
             <img src="@@content.Image@@" class="w100" alt="@@content.Title@@">
         </a>
     </div>
-    <div class="span-12 last">
-        
-        <div class="span-5 prepend-1">
-            <div class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</div>
-            <div class="price-sell product-price">@@content.Product.SellPrice?prefix=Now: £@@</div>
-            <div class="price-saving">@@content.Product.Saving?prefix=Save: £@@</div>
+     <div class="span-12 last">
+        <div class="span-6">
+            <span class="price-list">@@content.Product.WasPrice?prefix=Was: £@@</span><br>
+            <span class="price-sell">@@content.Product.SellPrice?prefix=Now: £@@</span><br>
+            <span class="price-saving">@@content.Product.Saving?prefix=Save: £@@</span><br>
+            <br>
+            Product Code: @@content.Product.SKU@@<br>
+            Stock: @@content.Product.Stock.Message@@<br>
         </div>
-        <div class="span-6 last">
-            <!--
-            <form action="?action=cart" method="POST">
-                <input type="hidden" name="cart.add.ID" value="@@content.ID@@">
-                <input type="submit" value="Add to Cart">
+        <div class="span-6 last" id="product-buynow">
+            <form method="POST" action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/627458445324618" accept-charset="utf-8">
+                <input type="hidden" name="item_name_1" value="@@content.Title@@"/>
+                <input type="hidden" name="item_description_1" value="@@content.Title@@"/>
+                <input type="hidden" name="item_quantity_1" value="1"/>
+                <input type="hidden" name="item_price_1" value="@@content.Product.SellPrice@@"/>
+                <input type="hidden" name="item_currency_1" value="GBP"/>
+                <input type="hidden" name="_charset_"/>
+
+                <input type="image" name="Google Checkout" alt="Fast checkout through Google"
+                    src="https://checkout.google.com/buttons/buy.gif?merchant_id=627458445324618&w=117&h=48&style=white&variant=text&loc=en_UK"
+                    height="48" width="117"/>
             </form>
-            -->
         </div>
-        
-        <div class="span-10 prepend-1 append-1 last">
+         
+        <div class="span-12 last">
             @@content.Teaser?markdown=true@@
-        </div>
-        <div class="span-10 prepend-1 append-1 last @@content.Product.Stock.Message?asCSSclass=true@@">
-            Stock: @@content.Product.Stock.Message@@
         </div>
     </div>
 </div>
