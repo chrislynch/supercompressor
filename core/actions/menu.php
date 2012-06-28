@@ -40,7 +40,7 @@ function action_menu_go(&$data){
         
         while($menuItem = mysql_fetch_assoc($menusData)){
             $menuField = str_ireplace('Category.', '', $menuField);
-            if ($menuField == 'Section') { $menuField == '';}
+            if ($menuField == 'Section') { $menuField = ''; }
             $data['menu']['browse'][$menuKey][] = array('link'=>'' .  $menuField . '/' . $menuItem['category'],
                                                 'text'=> $menuItem['category']);
         }
