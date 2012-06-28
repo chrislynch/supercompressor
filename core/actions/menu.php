@@ -39,16 +39,19 @@ function action_menu_go(&$data){
         $menusData = mysql_query($menusSQL,$db);
         
         while($menuItem = mysql_fetch_assoc($menusData)){
-            $data['menu']['browse'][$menuKey][] = array('link'=>'' .  /* $menuField . */ '/' . $menuItem['category'],
+            $menuField = str_ireplace('Category.', '', $menuField);
+            if ($menuField == 'Section') { $menuField == '';}
+            $data['menu']['browse'][$menuKey][] = array('link'=>'' .  $menuField . '/' . $menuItem['category'],
                                                 'text'=> $menuItem['category']);
         }
     }
     
-    if ($data['_configuration']['actions'][0] == 'search') {
-        // We ALSO need to produce filters, to run ahead of our browses       
+    if ($data['_configuration']['actions'][0] == 'search' && sizeof(@$data['search']['results']) > 0) {
+        // We ALSO need to produce filters, to run ahead of our browses
         $IDs = implode(',',$data['search']['results']);
         
         foreach($menus as $menuKey => $menuField){
+            
             if ($menuKey !== 'Sections'){
                 $data['filter'][$menuKey] = array();
             }

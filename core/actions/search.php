@@ -27,7 +27,15 @@ function action_search_go(&$data){
     }
     
     if(isset($data['x'])){
-        $_REQUEST['search.Section'] = $data['x'];
+        $x = $data['x'];
+        if (strstr($x,'/')){
+            $x = explode('/',$x);
+            for ($index = 0; $index < count($x); $index = $index +2) {
+                $_REQUEST['search.Category.' . $x[$index]] = $x[$index+1];
+            }
+        } else {
+            $_REQUEST['search.Section'] = $data['x'];
+        }
     }
     
     // Add on browses and filters
